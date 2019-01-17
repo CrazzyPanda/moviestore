@@ -36,4 +36,8 @@ class Movie extends Model
               return null;
           }
       }
+
+      public static function topSelling() {
+          return Movie::all()->random(6);
+      }
 }

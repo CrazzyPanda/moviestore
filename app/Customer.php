@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Movie;
 
 class Customer extends Model
 {
@@ -20,5 +21,9 @@ class Customer extends Model
   public function user()
   {
     return $this->belongsTo('App\User');
+  }
+
+  public function recommended() {
+      return Movie::all()->random(6);
   }
 }

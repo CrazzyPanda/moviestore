@@ -49,7 +49,7 @@
                             </li>
                             @elseif (Auth::user() != null && Auth::user()->hasRole('customer'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('customer.home') }}">{{ __('Home') }}</a>
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                             </li>
                             @endif
                         </ul>

@@ -106,7 +106,7 @@ class RegisterController extends Controller
             $url = '/admin/home';
         }
         else if ($user->hasRole('customer')){
-            $url = '/customer/home';
+            $url = '/';
         }
 
         else {
