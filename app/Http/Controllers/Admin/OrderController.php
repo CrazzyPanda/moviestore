@@ -15,20 +15,32 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function index()
+    // {
+    //     $orders = Order::all();
+    //     $users = User::all();
+    //     $movies = Movie::all();
+    //
+    //     return view('admin.home')->with([
+    //         'orders' => $orders,
+    //         'users' => $users,
+    //         'movies' => $movies
+    //     ]);
+    // }
+
     public function index()
     {
         $orders = Order::all();
-        $users = User::all();
-        $movies = Movie::all();
 
-        return view('admin.home')->with([
-            'orders' => $orders,
-            'users' => $users,
-            'movies' => $movies
+        return view('admin.orders.index')->with([
+            'orders' => $orders
         ]);
-
-
     }
 
+    public function show($id)
+    {
+        $order = Order::findOrFail($id);
+        return view('admin.orders.show')->with(['order' => $order]);
+    }
 
 }

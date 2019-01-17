@@ -33,7 +33,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <ul class="navbar-nav mr-auto">
+                            @if (Auth::user() != null && Auth::user()->hasRole('admin'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.orders.index') }}">{{ __('Orders') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
+                            </li>
+                            @elseif (Auth::user() != null && Auth::user()->hasRole('customer'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('customer.home') }}">{{ __('Home') }}</a>
+                            </li>
+                            @endif
+                        </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

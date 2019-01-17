@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/home', 'Admin\HomeController@index')->name('admin.home');
 Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.home');
+
+Route::resource('admin/movies', 'Admin\MovieController', array("as"=>"admin"));
+Route::resource('admin/orders', 'Admin\OrderController', array("as"=>"admin"));
+Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));

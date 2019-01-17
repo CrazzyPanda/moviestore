@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Movie;
+use App\User;
+use App\Customer;
 
 class HomeController extends Controller
 {
@@ -27,9 +30,13 @@ class HomeController extends Controller
     public function index()
     {
         $orders = Order::all();
+        $movies = Movie::all();
+        $users = User::all();
 
         return view('admin.home')->with([
-            'orders' => $orders
+            'orders' => $orders,
+            'movies' => $movies,
+            'users' => $users
         ]);
     }
 }
