@@ -72,7 +72,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">My Basket</a>
+              <a class="nav-link active" href="{{ route('basket.view') }}">My Basket</a>
             </li>
 
           </ul>
@@ -197,7 +197,7 @@
            <!-- /Controls -->
          </div>
             @endforeach
-            
+
       </div>
       <!-- /End Of Container -->
 
