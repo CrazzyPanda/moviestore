@@ -18,6 +18,11 @@ class Movie extends Model
         return $this->belongsTo('App\Genre');
       }
 
+      public function image()
+    {
+        return $this->belongsTo('App\Image');
+    }
+
   //a movie can have many reviews
       public  function reviews()
       {

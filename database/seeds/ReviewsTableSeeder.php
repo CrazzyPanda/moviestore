@@ -21,7 +21,7 @@ class ReviewsTableSeeder extends Seeder
         $review->starRating = "1";
         $review->date = "2018-11-25";
         $review->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Star Wars 1')->first()->id;
+        $review->movie_id = Movie::where('name', 'Coco')->first()->id;
         $review->save();
 
         $review = new Review();
@@ -30,7 +30,7 @@ class ReviewsTableSeeder extends Seeder
         $review->starRating = "5";
         $review->date = "2016-11-25";
         $review->customer_id = User::where('name', 'Hosh Hoo')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Star Wars 2')->first()->id;
+        $review->movie_id = Movie::where('name', 'Deadpool 2')->first()->id;
         $review->save();
 
         $review = new Review();
@@ -39,7 +39,7 @@ class ReviewsTableSeeder extends Seeder
         $review->starRating = "3";
         $review->date = "2016-11-25";
         $review->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Star Wars 2')->first()->id;
+        $review->movie_id = Movie::where('name', 'Fantastic Beast')->first()->id;
         $review->save();
     }
 }

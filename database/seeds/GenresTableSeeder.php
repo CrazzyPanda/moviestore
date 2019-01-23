@@ -12,24 +12,16 @@ class GenresTableSeeder extends Seeder
      */
     public function run()
     {
-        $genre = new Genre();
-        $genre->name = 'Action';
-        $genre->save();
-
-        $genre = new Genre();
-        $genre->name = 'Comedy';
-        $genre->save();
-
-        $genre = new Genre();
-        $genre->name = 'Thriller';
-        $genre->save();
-
-        $genre = new Genre();
-        $genre->name = 'Romance';
-        $genre->save();
-
-        $genre = new Genre();
-        $genre->name = 'Sci-Fi';
-        $genre->save();
+        $genreArray = array(
+            'Action', 'Adventure', 'Animation', 'Comedy', 'Drama',
+            'Documentary', 'Fantasy', 'Family', 'Fiction', 'Historical',
+            'Horror', 'Indie', 'Musical', 'Romance', 'Romantic-Comedy',
+            'Sci-Fi', 'Thriller', 'War', 'Western'
+        );
+        foreach($genreArray as $g){
+            $genre = new Genre();
+            $genre->name = $g;
+            $genre->save();
+        }
     }
 }

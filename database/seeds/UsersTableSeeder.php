@@ -14,7 +14,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $role_admin    = Role::where('name', 'admin')->first();
-        $role_customer = Role::where('name', 'customer')->first();
 
         $admin = new User();
         $admin->name = 'Jacea';

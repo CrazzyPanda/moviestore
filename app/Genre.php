@@ -11,4 +11,8 @@ class Genre extends Model
     {
       return $this->hasMany('App\Movie');
     }
+
+    public static function allGenres() {
+        return Genre::all();
+    }
 }

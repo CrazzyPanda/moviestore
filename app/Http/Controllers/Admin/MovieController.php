@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Genre;
 use App\Movie;
+use App\Image;
 use App\Http\Controllers\Controller;
 
 class MovieController extends Controller
@@ -54,15 +55,19 @@ class MovieController extends Controller
             'language' => 'required|max:100',
             'producers' => 'required|max:100',
             'writers' => 'required|max:100',
-            'cover' => 'required|file|image|dimensions:width=300, height=400',
+            'cover' => 'required|file|image',
             'genre_id' => 'required|exists:genres,id'
 
         ]);
 
         $cover = $request->file('cover');
         $extension = $request->getClientOriginalExtension();
-        $filename = date('Y-m-d-His') . '_' .$extension;
+        $filename = date('Y-m-d-His') . '_' . $m->id . '-' . $extension;
         $path = $cover->storeAs('cover', $filename, 'public');
+
+        $i = new Image();
+        $i->path = $path;
+        $i->save();
 
         $m = new Movie();
         $m->name = $request->input('name');
@@ -78,6 +83,7 @@ class MovieController extends Controller
         $m->producers = $request->input('producers');
         $m->writers = $request->input('writers');
         $m->genre_id = $request->input('genre_id');
+        $m->image_id = $image->id;
 
         $m->save();
 
