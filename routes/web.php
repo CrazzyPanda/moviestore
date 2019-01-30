@@ -23,6 +23,8 @@ Route::resource('admin/movies', 'Admin\MovieController', array("as"=>"admin"));
 Route::resource('admin/orders', 'Admin\OrderController', array("as"=>"admin"));
 Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));
 
+Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
+Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
 
 Route::get('/movies', 'MovieController@index')->name('movies.index');
 Route::get('/movies/{id}', 'MovieController@show')->name('movies.show');

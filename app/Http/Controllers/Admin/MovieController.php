@@ -46,7 +46,7 @@ class MovieController extends Controller
         $request->validate([
             'name' => 'required|max:50',
             'price' => 'required|numeric|between:0,99',
-            'summary' => 'required|max:100',
+            'summary' => 'required|max:255',
             'releaseDate' => 'required|max:50',
             'mainCast' => 'required',
             'directors' => 'required|max:100',

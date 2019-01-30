@@ -8,8 +8,8 @@
                 <div class="card-header">Add a Movie</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.movies.store') }}">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <form method="POST" action="{{ route('admin.movies.store') }}" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <table>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Cover:</label>
-                                        <input class="form-control-file" type="file" name="cover" value="{{ old('cover') }}" />
+                                        <input class="form-control-file" type="file" name="cover" />
                                         @if ($errors->has('cover'))
                                         <div class="error">{{ $errors->first('cover') }}</div>
                                         @endif
