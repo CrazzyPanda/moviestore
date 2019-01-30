@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+    @auth
         @if (Auth::user()->hasRole('customer'))
         <!-- Recommended For You -->
         <div class="row">
@@ -41,6 +42,7 @@
         </div>
         <!-- /Recommended For You -->
         @endif
+    @endauth
 
         <!-- Top Selling -->
         <div class="row">

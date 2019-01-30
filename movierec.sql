@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2018 at 12:37 PM
+-- Generation Time: Jan 24, 2019 at 02:14 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -30,16 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customers` (
   `id` int(10) UNSIGNED NOT NULL,
-  `firstName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `addressLine1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `addressLine2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `town` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `county` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nameOnCard` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cardNumber` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expiryDate` date NOT NULL,
+  `expiryDate` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cvv` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -48,9 +47,9 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `firstName`, `lastName`, `addressLine1`, `addressLine2`, `town`, `county`, `nameOnCard`, `cardNumber`, `expiryDate`, `cvv`, `created_at`, `updated_at`) VALUES
-(1, 'Grace', 'Cautley', '1 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Grace Cautley', '0123456789012345', '2020-12-30', '146', '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(2, 'Hosh', 'Hoo', '2 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Hosh Hoo', '1123456789012345', '2020-12-30', '001', '2018-11-27 12:59:18', '2018-11-27 12:59:18');
+INSERT INTO `customers` (`id`, `addressLine1`, `addressLine2`, `town`, `county`, `nameOnCard`, `cardNumber`, `expiryDate`, `cvv`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, '1 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Grace Cautley', '0123456789012345', '12/20', '146', 2, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(2, '2 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Hosh Hoo', '1123456789012345', '11/22', '001', 3, '2019-01-23 14:34:56', '2019-01-23 14:34:56');
 
 -- --------------------------------------------------------
 
@@ -70,11 +69,45 @@ CREATE TABLE `genres` (
 --
 
 INSERT INTO `genres` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Action', '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(2, 'Comedy', '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(3, 'Thriller', '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(4, 'Romance', '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(5, 'Sci-Fi', '2018-11-27 12:59:18', '2018-11-27 12:59:18');
+(1, 'Action', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(2, 'Adventure', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(3, 'Animation', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(4, 'Comedy', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(5, 'Drama', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(6, 'Documentary', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(7, 'Fantasy', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(8, 'Family', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(9, 'Fiction', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(10, 'Historical', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(11, 'Horror', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(12, 'Indie', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(13, 'Musical', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(14, 'Romance', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(15, 'Romantic-Comedy', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(16, 'Sci-Fi', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(17, 'Thriller', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(18, 'War', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(19, 'Western', '2019-01-23 14:34:55', '2019-01-23 14:34:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `path`, `created_at`, `updated_at`) VALUES
+(1, 'covers/default.png', '2019-01-23 14:34:55', '2019-01-23 14:34:55');
 
 -- --------------------------------------------------------
 
@@ -93,16 +126,18 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(29, '2014_10_12_000000_create_users_table', 1),
-(30, '2014_10_12_100000_create_password_resets_table', 2),
-(31, '2018_11_19_162939_create_roles_table', 3),
-(32, '2018_11_19_163051_create_role_user_table', 4),
-(33, '2018_11_19_163311_create_genres_table', 5),
-(34, '2018_11_19_163312_create_movies_table', 6),
-(35, '2018_11_19_163356_create_customers_table', 7),
-(36, '2018_11_19_163357_create_orders_table', 8),
-(37, '2018_11_19_163438_create_movie_order_table', 9),
-(38, '2018_11_19_163727_create_reviews_table', 10);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2018_11_19_162939_create_roles_table', 1),
+(4, '2018_11_19_163051_create_role_user_table', 1),
+(5, '2018_11_19_163311_create_genres_table', 1),
+(6, '2018_11_19_163312_create_movies_table', 1),
+(7, '2018_11_19_163356_create_customers_table', 1),
+(8, '2018_11_19_163357_create_orders_table', 1),
+(9, '2018_11_19_163438_create_movie_order_table', 1),
+(10, '2018_11_19_163727_create_reviews_table', 1),
+(11, '2019_01_17_162923_create_images_table', 1),
+(12, '2019_01_17_163127_add_image_id_to_movies_table', 1);
 
 -- --------------------------------------------------------
 
@@ -126,17 +161,21 @@ CREATE TABLE `movies` (
   `writers` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genre_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `image_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast`, `directors`, `region`, `runTime`, `type`, `language`, `producers`, `writers`, `genre_id`, `created_at`, `updated_at`) VALUES
-(1, 'Star Wars 1', '12.99', 'Star Wars 1 summary', '2001-01-01', 'Joe Bloggs, Mary Bloggs', 'Fred Bloggs, Anne Bloggs', 'Ireland', '02:50', 'DVD', 'English', 'Kevin Bloggs, Linda Bloggs', 'Sarah Bloggs, Pete Bloggs', 5, '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(2, 'Star Wars 2', '12.99', 'Star Wars 2 summary', '2002-02-02', 'Joe Bloggs, Mary Bloggs', 'Fred Bloggs, Anne Bloggs', 'Ireland', '02:50', 'DVD', 'English', 'Kevin Bloggs, Linda Bloggs', 'Sarah Bloggs, Pete Bloggs', 5, '2018-11-27 12:59:18', '2018-11-27 12:59:18'),
-(3, 'Star Wars 3', '12.99', 'Star Wars 3 summary', '2003-03-03', 'Joe Bloggs, Mary Bloggs', 'Fred Bloggs, Anne Bloggs', 'Ireland', '02:50', 'DVD', 'English', 'Kevin Bloggs, Linda Bloggs', 'Sarah Bloggs, Pete Bloggs', 5, '2018-11-27 12:59:18', '2018-11-27 12:59:18');
+INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast`, `directors`, `region`, `runTime`, `type`, `language`, `producers`, `writers`, `genre_id`, `created_at`, `updated_at`, `image_id`) VALUES
+(1, 'Fantastic Beast', '12.99', ' movie summary', '2001-01-01', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 7, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
+(2, 'Avengers Infinity War', '12.99', ' movie summary', '2002-02-02', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 1, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
+(3, 'Deadpool 2', '12.99', ' movie summary', '2003-03-03', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 4, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
+(4, 'Coco', '12.99', ' movie summary', '2001-01-01', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 3, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
+(5, 'The Greatest Showman', '12.99', ' movie summary', '2002-02-02', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 13, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
+(6, 'Ocean\'s 8', '12.99', ' movie summary', '2003-03-03', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 4, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1);
 
 -- --------------------------------------------------------
 
@@ -159,9 +198,9 @@ CREATE TABLE `movie_order` (
 
 INSERT INTO `movie_order` (`id`, `quantity`, `movie_id`, `order_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, NULL, NULL),
-(2, 1, 2, 1, NULL, NULL),
-(3, 1, 2, 2, NULL, NULL),
-(4, 2, 3, 2, NULL, NULL);
+(2, 1, 3, 1, NULL, NULL),
+(3, 1, 5, 2, NULL, NULL),
+(4, 2, 4, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -182,8 +221,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `date`, `customer_id`, `created_at`, `updated_at`) VALUES
-(1, '2018-11-12', 2, '2018-11-27 12:59:19', '2018-11-27 12:59:19'),
-(2, '2018-11-12', 1, '2018-11-27 12:59:19', '2018-11-27 12:59:19');
+(1, '2018-11-12', 2, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(2, '2018-11-12', 1, '2019-01-23 14:34:57', '2019-01-23 14:34:57');
 
 -- --------------------------------------------------------
 
@@ -220,9 +259,9 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `title`, `text`, `starRating`, `date`, `customer_id`, `movie_id`, `created_at`, `updated_at`) VALUES
-(1, 'This was SHIT.', 'This movie was not really good. It really wasnt, No.', '1', '2018-11-25', 1, 1, '2018-11-27 12:59:19', '2018-11-27 12:59:19'),
-(2, 'This was FANTASTIC.', 'This movie was really good. It really was. YAAASSS.', '5', '2016-11-25', 2, 2, '2018-11-27 12:59:19', '2018-11-27 12:59:19'),
-(3, 'This was OK.', 'This movie was ok. It really was. YAAASSS.', '3', '2016-11-25', 1, 2, '2018-11-27 12:59:19', '2018-11-27 12:59:19');
+(1, 'This was SHIT.', 'This movie was not really good. It really wasnt, No.', '1', '2018-11-25', 1, 4, '2019-01-23 14:34:57', '2019-01-23 14:34:57'),
+(2, 'This was FANTASTIC.', 'This movie was really good. It really was. YAAASSS.', '5', '2016-11-25', 2, 3, '2019-01-23 14:34:57', '2019-01-23 14:34:57'),
+(3, 'This was OK.', 'This movie was ok. It really was. YAAASSS.', '3', '2016-11-25', 1, 1, '2019-01-23 14:34:57', '2019-01-23 14:34:57');
 
 -- --------------------------------------------------------
 
@@ -243,8 +282,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'An administrator', '2018-11-27 12:59:17', '2018-11-27 12:59:17'),
-(2, 'customer', 'A customer', '2018-11-27 12:59:17', '2018-11-27 12:59:17');
+(1, 'admin', 'An administrator', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(2, 'customer', 'A customer', '2019-01-23 14:34:54', '2019-01-23 14:34:54');
 
 -- --------------------------------------------------------
 
@@ -266,7 +305,8 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, NULL, NULL),
-(2, 2, 2, NULL, NULL);
+(2, 2, 2, NULL, NULL),
+(3, 2, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -290,8 +330,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$sgx8Cg5FiSIOxjk1j5mXGeO7yWge/Qmg/D7DoNsIyduMGhT6UrJ62', NULL, '2018-11-27 12:59:17', '2018-11-27 12:59:17'),
-(2, 'Bob', 'Bob@gmail.com', NULL, '$2y$10$rSwo9pxMNTEZoO/UbTY1deq9KFlniI.RXCS3co1DLfP.iRSORTNRa', NULL, '2018-11-27 12:59:18', '2018-11-27 12:59:18');
+(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', 'Uenu3eVilkyB37VGil6SmCFpkHVtoJAAfMr5CkRScwAH4J44i0tus6Odvyml', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', 'Wgm6XjYqbNsppkW0QLaCEcyCTsSxzINGtGRlbPFTJYqp1SVjcXehjCG17IDE', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(3, 'Hosh Hoo', 'hosh@gmail.com', NULL, '$2y$10$u2h8KSwz9bxnJmN8mOOWFub9NVZoweIS0SVDjMLpJcbAya6/t/HCe', NULL, '2019-01-23 14:34:56', '2019-01-23 14:34:56');
 
 --
 -- Indexes for dumped tables
@@ -302,13 +343,21 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `customers_cardnumber_unique` (`cardNumber`);
+  ADD UNIQUE KEY `customers_cardnumber_unique` (`cardNumber`),
+  ADD KEY `customers_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `genres`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `images_path_unique` (`path`);
 
 --
 -- Indexes for table `migrations`
@@ -321,7 +370,8 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `movies_genre_id_foreign` (`genre_id`);
+  ADD KEY `movies_genre_id_foreign` (`genre_id`),
+  ADD KEY `movies_image_id_foreign` (`image_id`);
 
 --
 -- Indexes for table `movie_order`
@@ -388,19 +438,25 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `movie_order`
@@ -430,23 +486,30 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `customers`
+--
+ALTER TABLE `customers`
+  ADD CONSTRAINT `customers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
 -- Constraints for table `movies`
 --
 ALTER TABLE `movies`
-  ADD CONSTRAINT `movies_genre_id_foreign` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`);
+  ADD CONSTRAINT `movies_genre_id_foreign` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`),
+  ADD CONSTRAINT `movies_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`);
 
 --
 -- Constraints for table `movie_order`
