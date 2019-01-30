@@ -18,79 +18,90 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                              aria-haspopup="true" aria-expanded="false">Categories</a>
-                          <div class="dropdown-menu">
-                              @foreach (App\Genre::allGenres() as $genre)
-                              <a class="dropdown-item" href="#">{{ $genre->name}}</a>
-                              @endforeach
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Basket') }}</a>
-                        </li>
-                        @if (Auth::user() != null && Auth::user()->hasRole('admin'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.orders.index') }}">{{ __('Orders') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
-                        </li>
-                        @endif
-                    </ul>
+  <div id="app">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left Side Of Navbar -->
+          @if (Auth::user() == null || Auth::user()->hasRole('customer'))
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                  aria-haspopup="true" aria-expanded="false">Categories</a>
+              <div class="dropdown-menu">
+                  @foreach (App\Genre::allGenres() as $genre)
+                  <a class="dropdown-item" href="#{{ $genre->name}}">{{ $genre->name}}</a>
+                  @endforeach
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ __('Basket') }}</a>
+            </li>
+            @endif
+            @if (Auth::user() != null && Auth::user()->hasRole('admin'))
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Home') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.orders.index') }}">{{ __('Orders') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
+            </li>
+            @endif
+          </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        @if (Auth::user() != null && Auth::user()->hasRole('customer'))
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                              aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">View Profile</a>
-                            <a class="dropdown-item" href="#">View Order History</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">{{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                          </div>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+          <!-- Right Side Of Navbar -->
+          <ul class="navbar-nav ml-auto">
+            @if (Auth::user() != null && Auth::user()->hasRole('customer'))
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                  aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">View Profile</a>
+                <a class="dropdown-item" href="#">View Order History</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @elseif (Auth::user() != null && Auth::user()->hasRole('admin'))
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+              </div>
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
+            @endif
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+  </div>
 </body>
 </html>

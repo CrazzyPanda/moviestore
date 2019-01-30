@@ -8,11 +8,12 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('role:admin');
+    }
+
     public function index()
     {
         $users = User::all();
