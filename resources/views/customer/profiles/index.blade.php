@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div>
-                <h3>Profile</h3>
+                <h3 class="title">Profile</h3>
             </div>
             <p></p>
                 <div class="card">

@@ -29,7 +29,7 @@ class HomeController extends Controller
              $url = '/admin/home';
          }
          else if ($user->hasRole('customer')){
-             $url = '/';
+             $url = '/customer/home';
          }
 
          else {

@@ -26,8 +26,8 @@
       <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
-          @if (Auth::user() == null || Auth::user()->hasRole('customer'))
           <ul class="navbar-nav mr-auto">
+            @if (Auth::user() == null || Auth::user()->hasRole('customer'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
             </li>
@@ -36,12 +36,12 @@
                   aria-haspopup="true" aria-expanded="false">Categories</a>
               <div class="dropdown-menu">
                   @foreach (App\Genre::allGenres() as $genre)
-                  <a class="dropdown-item" href="#{{ $genre->name}}">{{ $genre->name}}</a>
+                  <a class="dropdown-item" href="#{{ $genre->name }}">{{ $genre->name}}</a>
                   @endforeach
               </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('Basket') }}</a>
+                <a class="nav-link" href="{{ route('basket.view') }}">{{ __('Shopping Basket') }}</a>
             </li>
             @endif
             @if (Auth::user() != null && Auth::user()->hasRole('admin'))
@@ -67,8 +67,8 @@
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">View Profile</a>
-                <a class="dropdown-item" href="#">View Order History</a>
+                <a class="dropdown-item" href="{{ route('customer.profiles.index') }}">View Profile</a>
+                <a class="dropdown-item" href="{{ route('customer.orders.index') }}">View Order History</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}

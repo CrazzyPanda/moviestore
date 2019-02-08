@@ -17,9 +17,9 @@ class MoviesTableSeeder extends Seeder
         $image = Image::where('path', 'covers/default.png')->first();
 
         $movie = new Movie();
-        $movie->name = "Fantastic Beast";
+        $movie->name = "Fantastic Beasts";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2001-01-01";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";
@@ -36,7 +36,7 @@ class MoviesTableSeeder extends Seeder
         $movie = new Movie();
         $movie->name = "Avengers Infinity War";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2002-02-02";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";
@@ -53,7 +53,7 @@ class MoviesTableSeeder extends Seeder
         $movie = new Movie();
         $movie->name = "Deadpool 2";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2003-03-03";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";
@@ -70,7 +70,7 @@ class MoviesTableSeeder extends Seeder
         $movie = new Movie();
         $movie->name = "Coco";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2001-01-01";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";
@@ -87,7 +87,7 @@ class MoviesTableSeeder extends Seeder
         $movie = new Movie();
         $movie->name = "The Greatest Showman";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2002-02-02";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";
@@ -104,7 +104,7 @@ class MoviesTableSeeder extends Seeder
         $movie = new Movie();
         $movie->name = "Ocean's 8";
         $movie->price = 12.99;
-        $movie->summary = " movie summary";
+        $movie->summary = "movie summary";
         $movie->releaseDate = "2003-03-03";
         $movie->mainCast = "cast 1, cast 2, cast 3";
         $movie->directors = "director 1, director 2";

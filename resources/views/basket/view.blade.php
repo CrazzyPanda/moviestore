@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div>
-                <h2>Shopping Basket</h2>
+                <h3 class="title">Shopping Basket</h3>
             </div>
             <p></p>
             <div>
                 @if ($basket->isEmpty())
-                    <h5>There are no items in your shopping basket</h5>
+                    <p>There are no items in your shopping basket.</p>
                 @else
             </div>
                 <div class="card">

@@ -39,7 +39,7 @@ class ReviewsTableSeeder extends Seeder
         $review->starRating = "3";
         $review->date = "2016-11-25";
         $review->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Fantastic Beast')->first()->id;
+        $review->movie_id = Movie::where('name', 'Fantastic Beasts')->first()->id;
         $review->save();
     }
 }

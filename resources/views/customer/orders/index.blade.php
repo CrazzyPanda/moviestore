@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div>
-                <h3>Order Index</h3>
+                <h3 class="title">Order Index</h3>
             </div>
             <p></p>
                 <div class="card">
@@ -20,7 +20,7 @@
                         </thread>
                         <tbody>
                             <tr>
-                                <td>{{ $order->id }}</td>
+                                <td>{{ $orders->id }}</td>
 
                                 <td>{{ $order->date }}</td>
                                 <td>{{ $order->totalCost() }}</td>

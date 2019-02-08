@@ -21,13 +21,15 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::all();
+        //$orders = Order::all();
         $user = Auth::user();
 
-        $order = $user->customer->;
+        //$customer = $user->customer;
+        $customer = $user->customer();
+        $orders = $customer->orders();
 
         return view('customer.orders.index')->with([
-            'order' => $order
+            'orders' => $orders
         ]);
     }
 }

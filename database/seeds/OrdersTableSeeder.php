@@ -19,7 +19,7 @@ class OrdersTableSeeder extends Seeder
         $order->date = "2018-11-12";
         $order->customer_id = User::where('name', 'Hosh Hoo')->first()->customer->id;
         $order->save();
-        $order->movies()->attach(Movie::where('name', "Fantastic Beast")->first()->id, ['quantity' => 1]);
+        $order->movies()->attach(Movie::where('name', "Fantastic Beasts")->first()->id, ['quantity' => 1]);
         $order->movies()->attach(Movie::where('name', "Deadpool 2")->first()->id, ['quantity' => 1]);
 
         $order = new Order();
