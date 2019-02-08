@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 02:14 PM
+-- Generation Time: Feb 08, 2019 at 10:24 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -49,7 +49,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `addressLine1`, `addressLine2`, `town`, `county`, `nameOnCard`, `cardNumber`, `expiryDate`, `cvv`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, '1 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Grace Cautley', '0123456789012345', '12/20', '146', 2, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
-(2, '2 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Hosh Hoo', '1123456789012345', '11/22', '001', 3, '2019-01-23 14:34:56', '2019-01-23 14:34:56');
+(2, '2 Main Street', 'Roseland', 'Bray', 'Wicklow', 'Hosh Hoo', '1123456789012345', '11/22', '001', 3, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(3, '10 main street', 'main street', 'bray', 'dublin', 'JudyAnn Engracio', '4444888822226666', '10/20', '123', 4, '2019-01-30 11:47:23', '2019-01-30 11:47:23');
 
 -- --------------------------------------------------------
 
@@ -77,17 +78,11 @@ INSERT INTO `genres` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (6, 'Documentary', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (7, 'Fantasy', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (8, 'Family', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(9, 'Fiction', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(10, 'Historical', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (11, 'Horror', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(12, 'Indie', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (13, 'Musical', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (14, 'Romance', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(15, 'Romantic-Comedy', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
 (16, 'Sci-Fi', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(17, 'Thriller', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(18, 'War', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
-(19, 'Western', '2019-01-23 14:34:55', '2019-01-23 14:34:55');
+(17, 'Thriller', '2019-01-23 14:34:55', '2019-01-23 14:34:55');
 
 -- --------------------------------------------------------
 
@@ -107,7 +102,21 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `path`, `created_at`, `updated_at`) VALUES
-(1, 'covers/default.png', '2019-01-23 14:34:55', '2019-01-23 14:34:55');
+(1, 'cover/default.png', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(2, 'cover/avengers-infinity-war.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(3, 'cover/coco.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(4, 'cover/deadpool-2 1.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(5, 'cover/fantastic-beast.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(6, 'cover/oceans-8.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(7, 'cover/the-greatest-showman.jpg', '2019-01-23 14:34:55', '2019-01-23 14:34:55'),
+(8, 'cover/A Quiet Place-2019-02-05-143747.jpg', '2019-02-05 14:37:48', '2019-02-05 14:37:48'),
+(9, 'cover/Kung Fu Panda-2019-02-07-192523.jpg', '2019-02-07 19:25:23', '2019-02-07 19:25:23'),
+(10, 'cover/Kung Fu Panda-2019-02-07-192636.jpg', '2019-02-07 19:26:36', '2019-02-07 19:26:36'),
+(11, 'cover/Coraline-2019-02-07-202856.png', '2019-02-07 20:28:56', '2019-02-07 20:28:56'),
+(12, 'cover/Hot Fuzz-2019-02-07-203652.jpg', '2019-02-07 20:36:52', '2019-02-07 20:36:52'),
+(13, 'cover/Chicken Little-2019-02-07-210141.jpg', '2019-02-07 21:01:41', '2019-02-07 21:01:41'),
+(14, 'cover/How to Train your Dragon-2019-02-07-210949.jpg', '2019-02-07 21:09:49', '2019-02-07 21:09:49'),
+(15, 'cover/The Emperor\'s New Groove-2019-02-07-211422.jpg', '2019-02-07 21:14:22', '2019-02-07 21:14:22');
 
 -- --------------------------------------------------------
 
@@ -170,12 +179,19 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast`, `directors`, `region`, `runTime`, `type`, `language`, `producers`, `writers`, `genre_id`, `created_at`, `updated_at`, `image_id`) VALUES
-(1, 'Fantastic Beast', '12.99', ' movie summary', '2001-01-01', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 7, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
-(2, 'Avengers Infinity War', '12.99', ' movie summary', '2002-02-02', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 1, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
-(3, 'Deadpool 2', '12.99', ' movie summary', '2003-03-03', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 4, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
-(4, 'Coco', '12.99', ' movie summary', '2001-01-01', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 3, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
-(5, 'The Greatest Showman', '12.99', ' movie summary', '2002-02-02', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 13, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1),
-(6, 'Ocean\'s 8', '12.99', ' movie summary', '2003-03-03', 'cast 1, cast 2, cast 3', 'director 1, director 2', 'Ireland', '02:50', 'DVD', 'English', 'producers 1, producers 2', 'writers', 4, '2019-01-23 14:34:56', '2019-01-23 14:34:56', 1);
+(1, 'Fantastic Beasts and Where to Find Them', '12.00', 'Newt Scamander arrives in New York city searching for beasts from around the world but, he gets caught up in a conflict when some of the magical creatures in his care escape.', '18-11-2016', 'Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller', 'David Yates', '2 (European Region)', '133 Minutes', 'DVD', 'English', 'David Heyman, J.K. Rowling, Steve Kloves, Lional Wigram', 'J.K. Rowling', 7, '2019-01-23 14:34:56', '2019-02-05 15:10:12', 1),
+(2, 'Avengers: Infinity War', '14.00', 'The Avengers and their allies must be willing to sacrifice everything in an attempt to defeat the all powerful Thanos before his blitz of destruction and utter devastation.', '23-04-2018', 'Robert Downey Jr., Chris Hemsworth, Elizabeth Olsen, Chris Evens, Zoe Saldana, Josh Brolin', 'Anthony Russo, Joe Russo', '2 (European Region)', '149 Minutes', 'DVD', 'English', 'Kevin Feige', 'Christopher Markus, Stephen McFeely', 7, '2019-01-23 14:34:56', '2019-02-05 14:53:07', 1),
+(3, 'Deadpool 2', '14.00', 'Foul-mouthed mutant mercenary Deadpool, brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.', '18-05-2018', 'Ryan Reynolds, Josh Brolin, Zazie Beetz, Julian Dennison', 'David Leitch', '2 (European Region)', '119 Minutes', 'DVD', 'English', 'Simon Kinberg, Lauren Shuler Donner, Ryan Reynolds', 'Rhett Reese, Paul Wernick, Ryan Reynolds', 7, '2019-01-23 14:34:56', '2019-02-07 19:13:11', 1),
+(4, 'Coco', '10.00', 'Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.', '22-11-2017', 'Anthony Gonzalez, Gael Garcia, Benjamin Bratt, Alanna Ubach, Renee Victor', 'Lee Unkrich', '2 (European Region)', '105 Minutes', 'DVD', 'English', 'Darla K. Anderson', 'Adrian Molina, Matthew Aldrich', 3, '2019-01-23 14:34:56', '2019-02-07 19:32:56', 1),
+(5, 'The Greatest Showman', '12.00', 'Celebrates the birth of show business and tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.', '20-12-2017', 'Hugh Jackman, Zac Efron, Zendaya, Michelle Williams, Rebecca Ferguson', 'Michael Gracey', '2 (European Region)', '105 Minutes', 'DVD', 'English', 'Laurence Mark, Peter Chernin, Jenno Topping', 'Jenny Bicks, Bill Condon', 1, '2019-01-23 14:34:56', '2019-02-07 20:23:50', 1),
+(6, 'Ocean\'s 8', '14.00', 'Debbie Ocean gathers an all-female crew to attempt an impossible heist at New York City\'s yearly Met Gala.', '08-06-2018', 'Sandra Bullock, Cate Blanchett, Anne Hathaway, Helena Bonham Carter, Rihanna, Mindy Kaling, Sarah Paulson, Awkwafina', 'Gary Ross', '2 (European Region)', '110 Minutes', 'DVD', 'English', 'Steven Soderbergh, Susan Ekins', 'Gary Ross, Olivia Milch', 1, '2019-01-23 14:34:56', '2019-02-07 20:23:20', 1),
+(7, 'A Quiet Place', '12.00', 'A family of four must navigate their lives in silence after mysterious creatures that hunt by sound threaten their survival. If they hear you, they hunt you.', '06-04-2018', 'Emily Blunt, John Krasinski, Millicent Simmonds, Noah Jupe', 'John Krasinski', '2 (European Region)', '90 Minutes', 'DVD', 'English', 'Michael Bay, Andrew Form, Brad Fuller', 'Bryan Woods, Scott Beck, John Krasinski', 17, '2019-02-05 14:37:48', '2019-02-05 14:43:38', 8),
+(8, 'Kung Fu Panda', '8.00', 'China\'s fate hangs in the balance as a savage tries to take over. The Dragon Warrior mantle is supposedly bestowed upon a panda who is a novice in martial arts.', '06-06-2008', 'Jack Black, Dustin Hoffman, Angelina Jolie, James Hong, Ian McShane', 'John Stevenson, Mark Osborne', '2 (European Region)', '92 Minutes', 'DVD', 'English', 'Melissa Cobb', 'Jonathan Aibel, Glenn Berger', 3, '2019-02-07 19:26:36', '2019-02-07 19:26:36', 10),
+(9, 'Coraline', '8.00', 'An adventurous 11-year-old girl finds another world that is a strangely idealized version of her frustrating home, but it has sinister secrets.', '06-02-2009', 'Dakota Fanning, Teri Hatcher, Jennifer Saunders, Dawn French, Ian McShane', 'Henry Selick', '2 (European Region)', '100 Minutes', 'DVD', 'English', 'Bill Mechanic, Claire Jennings, Mary Sandell, Henry Selick', 'Henry Selick', 3, '2019-02-07 20:28:56', '2019-02-07 20:28:56', 11),
+(10, 'Hot Fuzz', '8.00', 'A skilled London police officer is transferred to a small town with a dark secret.', '16-02-2018', 'Simon Pegg, Nick Frost, Jim Broadbent, Timothy Dalton', 'Edgar Wright', '2 (European Region)', '121 Minutes', 'DVD', 'English', 'Nira Park, Tim Bevan, Eric Fellner', 'Edgar Wright, Simon Pegg', 4, '2019-02-07 20:36:52', '2019-02-07 20:36:52', 12),
+(11, 'Chicken Little', '8.00', 'After ruining his reputation with the town, a courageous chicken must come to the rescue of his fellow citizens when aliens start an invasion.', '04-11-2005', 'Zach Braff, Joan Cusack, Steve Zahn, Garry Marshall', 'Mark Dindal', '2 (European Region)', '81 Minutes', 'DVD', 'English', 'Randy Fullmer', 'Steve Bencich, Ron J. Friedman, Ron Anderson', 3, '2019-02-07 21:01:41', '2019-02-07 21:01:41', 13),
+(12, 'How to Train your Dragon', '8.00', 'A hapless young Viking who aspires to hunt dragons becomes the unlikely friend of a young dragon himself, and learns there may be more to the creatures than he assumed.', '26-03-2010', 'Jay Baruchel, Gerard Butler, Craig Ferguson, America Ferrera', 'Chris Sanders, Dean DeBlois', '2 (European Region)', '98 Minutes', 'DVD', 'English', 'Bonnie Arnold', 'Will Davies, Dean DeBlois, Chris Sanders', 3, '2019-02-07 21:09:49', '2019-02-07 21:09:49', 14),
+(13, 'The Emperor\'s New Groove', '8.00', 'Emperor Kuzco is turned into a llama by his ex-administrator Yzma, and must now regain his throne with the help of Pacha, the gentle llama herder.', '15-12-2000', 'David Spade, John Goodman, Eartha Kitt, Patrick Warburton, Wendie Malick', 'Mark Dindal', '2 (European Region)', '77 Minutes', 'DVD', 'English', 'Randy Fullmer', 'Chris Williams, Mark Dindal', 3, '2019-02-07 21:14:22', '2019-02-07 21:19:31', 15);
 
 -- --------------------------------------------------------
 
@@ -306,7 +322,8 @@ CREATE TABLE `role_user` (
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, NULL, NULL),
 (2, 2, 2, NULL, NULL),
-(3, 2, 3, NULL, NULL);
+(3, 2, 3, NULL, NULL),
+(4, 2, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -330,9 +347,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', 'Uenu3eVilkyB37VGil6SmCFpkHVtoJAAfMr5CkRScwAH4J44i0tus6Odvyml', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
-(2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', 'Wgm6XjYqbNsppkW0QLaCEcyCTsSxzINGtGRlbPFTJYqp1SVjcXehjCG17IDE', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
-(3, 'Hosh Hoo', 'hosh@gmail.com', NULL, '$2y$10$u2h8KSwz9bxnJmN8mOOWFub9NVZoweIS0SVDjMLpJcbAya6/t/HCe', NULL, '2019-01-23 14:34:56', '2019-01-23 14:34:56');
+(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', '7bLUIdyMvWMVjd3sW5PJuG5OELoouj46z3DVUgQWEX9XkeO1sS2ycx13dMfP', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', 'MR77u0SLHrPPiQTgykQoiZKTY7kHLIp17JrcA6DD0bwYKKq0vQP4hzDRqU6A', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(3, 'Hosh Hoo', 'hosh@gmail.com', NULL, '$2y$10$u2h8KSwz9bxnJmN8mOOWFub9NVZoweIS0SVDjMLpJcbAya6/t/HCe', NULL, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(4, 'JudyAnn Engracio', 'Jae@gmail.com', NULL, '$2y$10$P8tGZUq530l5KCa9t0bfQ.lS0xlzMlFeoXnrDAVzLw0Y6zX23jSxG', '0NUp0DHCKFyfXh1SwoDCnh6ZPJwG9D2KYmmpa78nULcm6ezXhauVx1YFEbMM', '2019-01-30 11:47:23', '2019-01-30 11:47:23');
 
 --
 -- Indexes for dumped tables
@@ -432,19 +450,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -456,7 +474,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `movie_order`
@@ -486,13 +504,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

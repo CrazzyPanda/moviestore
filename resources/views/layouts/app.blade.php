@@ -41,7 +41,7 @@
               </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('Basket') }}</a>
+                <a class="nav-link" href="{{ route('basket.view') }}">{{ __('Shopping Basket') }}</a>
             </li>
             @endif
             @if (Auth::user() != null && Auth::user()->hasRole('admin'))
@@ -67,8 +67,8 @@
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">View Profile</a>
-                <a class="dropdown-item" href="#">View Order History</a>
+                <a class="dropdown-item" href="{{ route('customer.profiles.index') }}">View Profile</a>
+                <a class="dropdown-item" href="{{ route('customer.orders.index') }}">View Order History</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}

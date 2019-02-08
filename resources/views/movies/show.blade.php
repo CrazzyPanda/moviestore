@@ -3,9 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6">
+                        <img class="d-block w-100"  src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}">
                     </div>
 
 
@@ -31,35 +32,71 @@
                     <div class="col-md-12">
                         <div><h5>Product Details</h5></div>
                     <hr/>
-                        <p>Main Cast: {{ $movie->mainCast }}</p>
-                        <p>Directors: {{ $movie->directors }}</p>
-                        <p>Producers: {{ $movie->producers }}</p>
-                        <p>Writers: {{ $movie->writers }}</p>
-                        <p>Run Time: {{ $movie->runTime }}</p>
-                        <p>Release Date: {{ $movie->releaseDate }}</p>
-                        <p>Region: {{ $movie->region }}</p>
-                        <p>Language: {{ $movie->language }}</p>
-                        <p>Type: {{ $movie->type }}</p>
-                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Main Cast:</th>
+                                <td>{{ $movie->mainCast }}</td>
+                            </tr>
+                            <tr>
+                                <th>Directors:</th>
+                                <td>{{ $movie->directors }}</td>
+                            </tr>
+                            <tr>
+                                <th>Producers:</th>
+                                <td>{{ $movie->producers }}</td>
+                            </tr>
+                            <tr>
+                                <th>Writers:</th>
+                                <td>{{ $movie->writers }}</td>
+                            </tr>
+                            <tr>
+                                <th>Run Time:</th>
+                                <td>{{ $movie->runTime }}</td>
+                            </tr>
+                            <tr>
+                                <th>Release Date:</th>
+                                <td>{{ $movie->releaseDate }}</td>
+                            </tr>
+                            <tr>
+                                <th>Region:</th>
+                                <td>{{ $movie->region }}</td>
+                            </tr>
+                            <tr>
+                                <th>Language:</th>
+                                <td>{{ $movie->language }}</td>
+                            </tr>
+                            <tr>
+                                <th>Type:</th>
+                                <td>{{ $movie->type }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <hr/>
+            </div>
+                <!-- <hr/> -->
 
                 <div class="row">
                     <div class="col-md-12">
+                    <hr/>
                         <div><h5>Reviews</h5></div>
                     <hr/>
                         <!-- <p>{{ $review->customer->user->name }}</p> -->
                         <div class='row'>
                             <div class='col-md-3'>
-                                <b>{{ $review->title }}</b>
+                                <b>{{ $review->title }}</b></br>
                                 <small>{{ $review->date }}</small>
                             </div>
                             <div class='col-md-9'>
                                 <p>{{ $review->starRating }}</p>
                             </div>
                         </div>
-                        <p></p>
-                        <p>{{ $review->text }}</p>
+                        <div class='row'>
+                            <div class='col-md-8'>
+                                <p>{{ $review->text }}</p>
+                                <hr/>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

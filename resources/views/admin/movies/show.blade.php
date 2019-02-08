@@ -4,9 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div>
-                <h2>Movie Details</h2>
+            <div class="row">
+                <div class="col-md-9">
+                    <h2>Movie Details</h2>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-outline-primary" href="{{ route('admin.movies.edit', $movie) }}">Edit Movie</a>
+                </div>
             </div>
+            <p></p>
                 <div class="card">
                         <table class="table">
                             <tbody>
@@ -20,7 +26,7 @@
                                 </tr>
                                 <tr>
                                     <th>Price</th>
-                                    <td>{{ $movie->price }}</td>
+                                    <td>€ {{ $movie->price }}</td>
                                 </tr>
                                 <tr>
                                     <th>Summary</th>
@@ -68,7 +74,7 @@
                                 </tr>
                                 <tr>
                                     <th>Cover</th>
-                                    <td>{{ $movie->cover }}</td>
+                                    <td><img src="{{ asset('storage/' . $movie->image->path) }}" width="150px" /></td>
                                 </tr>
 
                             </tbody>
