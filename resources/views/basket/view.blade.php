@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div>
                 <h3 class="title">Shopping Basket</h3>
             </div>
@@ -27,7 +27,7 @@
                             @foreach ($basket->getItems() as $item)
                             <tr>
                                 <td>{{ $item->getMovie()->name }}</td>
-                                <td>{{ number_format($item->getMovie()->price, 2) }}</td>
+                                <td>€ {{ number_format($item->getMovie()->price, 2) }}</td>
                                 <td>{{ $item->getQuantity() }}</td>
                                 <td>€ {{ number_format($item->getTotalPrice(), 2) }}</td>
                             </tr>
@@ -37,10 +37,12 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Order Price Total: € {{ $basket->getTotalPrice() }}</td>
+                                <th>Order Total:</th>
+                                <td>€ {{ $basket->getTotalPrice() }}</td>
                             </tr>
                         </tbody>
-                    @endif
+                    </table>
+                @endif
             </div>
         </div>
     </div>

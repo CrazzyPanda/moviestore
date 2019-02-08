@@ -31,15 +31,15 @@ class ShoppingBasket {
         }
     }
     //
-    // public function update($book, $qty) {
-    //     if (isset($this->items[$book->id])) {
+    // public function update($movie, $qty) {
+    //     if (isset($this->items[$movie->id])) {
     //         if ($qty > 0) {
-    //             $item = $this->items[$book->id];
+    //             $item = $this->items[$movie->id];
     //             $item->setQuantity($qty);
     //         }
     //         else if ($qty == 0) {
-    //             $this->item[$book->id] = NULL;
-    //             unset($this->items[$book->id]);
+    //             $this->item[$movie->id] = NULL;
+    //             unset($this->items[$movie->id]);
     //         }
     //     }
     //     else {

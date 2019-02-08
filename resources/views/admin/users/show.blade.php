@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div>
-                <h3>Order Index</h3>
+                <h3>Orders</h3>
             </div>
             <p></p>
-                <!-- <div class="card"> -->
+                <div class="card">
                     <table class="table table-striped table-dark table-bordered">
                         <thead>
                             <tr>
@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($orders as $order)
+                            @foreach ($user->customer->orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>€ {{ $order->totalCost() }}</td>
@@ -33,7 +33,7 @@
 
                         </tbody>
                     </table>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>

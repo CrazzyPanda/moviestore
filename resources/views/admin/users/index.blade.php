@@ -8,15 +8,16 @@
                     <h3>User Index</h3>
                 </div>
                 <p></p>
-                <div class="card">
-                    <table class="table">
-                        <thread>
+                <!-- <div class="card"> -->
+                    <table class="table table-striped table-dark table-bordered">
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th></th>
                             </tr>
-                        </thread>
+                        </thead>
                         <tbody>
 
                             @foreach ($users as $user)
@@ -24,12 +25,13 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td><a class="btn btn-outline-primary" href="{{ route('admin.users.show', $user) }}">View Orders</a></td>
                             </tr>
                             @endforeach
 
                         </tbody>
                     </table>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

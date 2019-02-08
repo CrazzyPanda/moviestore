@@ -35,21 +35,21 @@ class BasketController extends Controller
             $movie_id = $request->input('movie_id');
             $movie = Movie::find($movie_id);
 
-            $cart = $this->getBasket($request);
-            $cart->add($movie, 1);
+            $basket = $this->getBasket($request);//
+            $basket->add($movie, 1);//
 
             $request->session()->flash('alert-success', $movie->title . ' was added to your basket!');
-            
+
             return redirect()->back();
         }
     }
 //
 //     public function edit(Request $request)
 //     {
-//         $cart = $this->getCart($request);
+//         $basket = $this->getBasket($request);
 //
-//         return view('cart.edit')->with([
-//             'cart' => $cart
+//         return view('basket.edit')->with([
+//             'basket' => $basket
 //         ]);
 //     }
 //
@@ -60,15 +60,15 @@ class BasketController extends Controller
 //             'quantity.*' => 'integer|min:0'
 //         ]);
 //
-//         $cart = $this->getCart($request);
+//         $basket = $this->getBasket($request);
 //         $quantities = $request->input('quantity');
-//         foreach ($quantities as $book_id => $quantity) {
-//             $book = Book::findOrFail($book_id);
-//             $cart->update($book, $quantity);
+//         foreach ($quantities as $movie_id => $quantity) {
+//             $movie = Movie::findOrFail($movie_id);
+//             $basket->update($movie, $quantity);
 //         }
 //
-//         $request->session()->flash('alert-success', 'Your cart was updated!');
-//         return redirect()->route('cart.view');
+//         $request->session()->flash('alert-success', 'Your basket was updated!');
+//         return redirect()->route('basket.view');
 //     }
 //
 //     public function checkout(Request $request)
@@ -79,10 +79,10 @@ class BasketController extends Controller
 //             return redirect()->route('login');
 //         }
 //
-//         $cart = $this->getCart($request);
+//         $basket = $this->getBasket($request);
 //
 //         return view('cart.checkout')->with([
-//             'cart' => $cart,
+//             'basket' => $basket,
 //             'user' => $user
 //         ]);
 //     }
@@ -128,25 +128,25 @@ class BasketController extends Controller
 //         $order->credit_card_id = $card->id;
 //         $order->save();
 //
-//         $cart = $this->getCart($request);
-//         foreach ($cart->getItems() as $item) {
-//             $order->books()->attach($item->getBook()->id, [
+//         $basket = $this->getBasket($request);
+//         foreach ($basket->getItems() as $item) {
+//             $order->movies()->attach($item->getMovie()->id, [
 //                 'quantity' => $item->getQuantity()]
 //             );
 //         }
 //
-//         $cart->removeAll();
+//         $basket->removeAll();
 //
 //         $request->session()->flash('alert-success', 'Your order and payment have been received!');
 //         return redirect()->route('user.orders.show', $order);
 //     }
 
     private function getBasket(Request $request) {
-        $cart = $request->session()->get('cart', null);
-        if ($cart == null) {
-            $cart = new ShoppingBasket();
-            $request->session()->put('cart', $cart);
+        $basket = $request->session()->get('basket', null);//
+        if ($basket == null) {//
+            $basket = new ShoppingBasket();//
+            $request->session()->put('basket', $basket);//
         }
-        return $cart;
+        return $basket;//
     }
  }

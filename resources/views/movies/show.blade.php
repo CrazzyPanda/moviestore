@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="d-block w-100"  src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}">
+                    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addMsg" tabindex="-1" role="dialog" aria-labelledby="addMsgLabel" aria-hidden="true">
@@ -64,7 +70,7 @@
     <div class="row">
         <div class="col-md-12">
             <div><h5 class="title">Reviews</h5></div>
-            
+
             <!-- <p>{{ $review->customer->user->name }}</p> -->
             <div class='row'>
                 <div class='col-md-3'>

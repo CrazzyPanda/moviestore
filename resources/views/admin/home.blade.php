@@ -25,15 +25,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="card">
-                        <table class="table">
-                            <thread>
+                    <!-- <div class="card"> -->
+                        <table class="table table-striped table-dark table-bordered">
+                            <thead>
                                 <tr>
                                     <th scope="col">Order ID</th>
                                     <th scope="col">Total Price</th>
                                     <th scope="col">Customer Email</th>
                                 </tr>
-                            </thread>
+                            </thead>
                             <tbody>
 
                                 @foreach ($orders as $order)
@@ -46,26 +46,26 @@
 
                             </tbody>
                         </table>
-                    </div>
+                    <!-- </div> -->
                     <p></p>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Recently Added Movies</h3>
+                            <h3>Recent Movies Added</h3>
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-outline-primary" href="{{ route('admin.movies.index') }}">View All Movies</a>
                         </div>
                     </div>
                     <p></p>
-                    <div class="card">
-                        <table class="table">
-                            <thread>
+                    <!-- <div class="card"> -->
+                        <table class="table table-striped table-dark table-bordered">
+                            <thead>
                                 <tr>
                                     <th scope="col">Movie ID</th>
                                     <th scope="col">Movie Name</th>
                                     <th scope="col">Movie Price</th>
                                 </tr>
-                            </thread>
+                            </thead>
                             <tbody>
 
                                 @foreach ($movies as $movie)
@@ -78,26 +78,26 @@
 
                             </tbody>
                         </table>
-                    </div>
+                    <!-- </div> -->
                     <p></p>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Recently Registered Users</h3>
+                            <h3>Recent Users Registered</h3>
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-outline-primary" href="{{ route('admin.users.index') }}">View All Users</a>
                         </div>
                     </div>
                     <p></p>
-                    <div class="card">
-                        <table class="table">
-                            <thread>
+                    <!-- <div class="card"> -->
+                        <table class="table table-striped table-dark table-bordered">
+                            <thead>
                                 <tr>
                                     <th scope="col">User ID</th>
                                     <th scope="col">User Name</th>
                                     <th scope="col">User Email</th>
                                 </tr>
-                            </thread>
+                            </thead>
                             <tbody>
 
                                 @foreach ($users as $user)
@@ -110,8 +110,8 @@
 
                             </tbody>
                         </table>
-                    </div>
-                    
+                    <!-- </div> -->
+
 
                 <!-- </div> -->
             <!-- </div> -->

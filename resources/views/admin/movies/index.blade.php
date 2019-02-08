@@ -13,31 +13,38 @@
                 </div>
             </div>
             <p></p>
-                <div class="card">
-                    <table class="table">
-                        <thread>
+                <!-- <div class="card"> -->
+                    <table class="table table-striped table-dark table-bordered">
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
-                        </thread>
+                        </thead>
                         <tbody>
 
                             @foreach ($movies as $movie)
                             <tr>
                                 <td>{{ $movie->id }}</td>
                                 <td>{{ $movie->name }}</td>
-                                <td>{{ $movie->price }}</td>
-                                <td><a class="btn btn-outline-primary" href="{{ route('admin.movies.show', $movie) }}">View Movie</a><td>
+                                <td>€ {{ $movie->price }}</td>
+                                <td><a class="btn btn-outline-primary" href="{{ route('admin.movies.show', $movie) }}">View</a></td>
+                                <td><a class="btn btn-outline-primary" href="{{ route('admin.movies.edit', $movie) }}">Edit</a></td>
+                                <td><form action="{{ route('admin.movies.destroy', $movie)}}" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button class="btn btn-outline-primary">Delete</button></td>
+                                </form>
                             </tr>
                             @endforeach
 
                         </tbody>
                     </table>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>
