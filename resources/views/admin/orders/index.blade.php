@@ -8,12 +8,11 @@
                 <h3>Order Index</h3>
             </div>
             <p></p>
-                <!-- <div class="card"> -->
                     <table class="table table-striped table-dark table-bordered">
                         <thead>
                             <tr>
                                 <th>Order ID</th>
-                                <th>Order Total</th>
+                                <th>Total Cost</th>
                                 <th>Date Purchased</th>
                                 <th>Customer Email</th>
                                 <th></th>
@@ -33,7 +32,6 @@
 
                         </tbody>
                     </table>
-                <!-- </div> -->
             </div>
         </div>
     </div>

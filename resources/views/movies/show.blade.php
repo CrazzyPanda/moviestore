@@ -2,12 +2,6 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img class="d-block w-100"  src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}">
-                    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addMsg" tabindex="-1" role="dialog" aria-labelledby="addMsgLabel" aria-hidden="true">
@@ -49,7 +43,7 @@
             </div>
         </div>
       </div>
-      <hr/>
+      <hr>
 
     <div class="row">
         <div class="col-md-12">
@@ -65,24 +59,24 @@
             <!-- <p>Type: {{ $movie->type }}</p> -->
         </div>
     </div>
-    <hr/>
+    <hr>
 
     <div class="row">
         <div class="col-md-12">
             <div><h5 class="title">Reviews</h5></div>
-
-            <!-- <p>{{ $review->customer->user->name }}</p> -->
+            @foreach ($reviews as $review)
+            <p>By: {{ $review->customer->user->name }}</p>
             <div class='row'>
                 <div class='col-md-3'>
                     <p>{{ $review->title }}</p>
-                    <small>{{ $review->date }}</small>
+                    <p><small>{{ $review->date }}</small></p>
                 </div>
                 <div class='col-md-9'>
-                    <p>{{ $review->starRating }}</p>
+                    <p>{{ $review->starRating }}/5 stars</p>
                 </div>
             </div>
-            <p></p>
             <p>{{ $review->text }}</p>
+            @endforeach
         </div>
     </div>
 </div>

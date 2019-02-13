@@ -17,22 +17,19 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        $reviews = Review::all();
 
         return view('movies.index')->with([
-            'movies' => $movies,
-            'reviews' => $reviews
-
+            'movies' => $movies
         ]);
     }
 
     public function show($id)
     {
         $movie = Movie::findOrFail($id);
-        $review = Review::findOrFail($id);
+        $reviews = $movie->reviews;
         return view('movies.show')->with([
             'movie' => $movie,
-            'review' => $review
+            'reviews' => $reviews
         ]);
     }
 }

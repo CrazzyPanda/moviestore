@@ -42,7 +42,7 @@
                 </div>
                 <p></p>
                 <div>
-                    <h5>Card Details</h5>
+                    <h5 class="title">Card Details</h5>
                 </div>
                 <p></p>
                     <div class="card">

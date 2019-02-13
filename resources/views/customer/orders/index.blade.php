@@ -4,31 +4,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div>
-                <h3 class="title">Order Index</h3>
-            </div>
-            <p></p>
-                <div class="card">
-                    <table class="table">
-                        <thread>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Total Price</th>
-                                <th>Customer Email</th>
-                                <th>Date Purchased</th>
-                            </tr>
-                        </thread>
-                        <tbody>
-                            <tr>
-                                <td>{{ $orders->id }}</td>
-
-                                <td>{{ $order->date }}</td>
-                                <td>{{ $order->totalCost() }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <div><h3 class="title">My Orders</h3></div>
+            <table class="table table-light">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">Date Purchased</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($orders as $order)
+                <tr>
+                  <th scope="row">{{ $order->id }}</th>
+                  <td>{{ $order->totalCost() }}</td>
+                  <td>{{ $order->date }}</td>
+                  <td><a class="btn btn-outline-primary" href="{{ route('customer.orders.show', $order) }}">View</a></td>
+                </tr>
+                @endforeach
+              </tbody>
+          </table>
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $customer = $user->customer;
-
+        
         return view('customer.profiles.index')->with([
             'customer' => $customer
         ]);

@@ -16,19 +16,6 @@ class OrderController extends Controller
         $this->middleware('role:admin');
     }
 
-    // public function index()
-    // {
-    //     $orders = Order::all();
-    //     $users = User::all();
-    //     $movies = Movie::all();
-    //
-    //     return view('admin.home')->with([
-    //         'orders' => $orders,
-    //         'users' => $users,
-    //         'movies' => $movies
-    //     ]);
-    // }
-
     public function index()
     {
         $orders = Order::all();
@@ -40,13 +27,7 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        // $orders = Order::findOrFail($id);
-        // return view('admin.orders.show')->with([
-        //     'orders' => $orders
-        // ]);
-
         $order = Order::findOrFail($id);
         return view('admin.orders.show')->with(['order' => $order]);
     }
-
 }

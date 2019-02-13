@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2019 at 10:24 AM
+-- Generation Time: Feb 10, 2019 at 06:26 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -116,7 +116,15 @@ INSERT INTO `images` (`id`, `path`, `created_at`, `updated_at`) VALUES
 (12, 'cover/Hot Fuzz-2019-02-07-203652.jpg', '2019-02-07 20:36:52', '2019-02-07 20:36:52'),
 (13, 'cover/Chicken Little-2019-02-07-210141.jpg', '2019-02-07 21:01:41', '2019-02-07 21:01:41'),
 (14, 'cover/How to Train your Dragon-2019-02-07-210949.jpg', '2019-02-07 21:09:49', '2019-02-07 21:09:49'),
-(15, 'cover/The Emperor\'s New Groove-2019-02-07-211422.jpg', '2019-02-07 21:14:22', '2019-02-07 21:14:22');
+(15, 'cover/The Emperor\'s New Groove-2019-02-07-211422.jpg', '2019-02-07 21:14:22', '2019-02-07 21:14:22'),
+(16, 'cover/Isle of Dogs-2019-02-10-154413.jpg', '2019-02-10 15:44:13', '2019-02-10 15:44:13'),
+(17, 'cover/Isle of Dogs-2019-02-10-154522.jpg', '2019-02-10 15:45:22', '2019-02-10 15:45:22'),
+(18, 'cover/Megamind-2019-02-10-155412.jpg', '2019-02-10 15:54:12', '2019-02-10 15:54:12'),
+(19, 'cover/Cloudy with a Chance of Meatballs-2019-02-10-160033.png', '2019-02-10 16:00:33', '2019-02-10 16:00:33'),
+(20, 'cover/Paranorman-2019-02-10-165723.jpg', '2019-02-10 16:57:23', '2019-02-10 16:57:23'),
+(21, 'cover/Paranorman-2019-02-10-165832.jpg', '2019-02-10 16:58:32', '2019-02-10 16:58:32'),
+(22, 'cover/Fantastic Mr. Fox-2019-02-10-172339.jpg', '2019-02-10 17:23:40', '2019-02-10 17:23:40'),
+(23, 'cover/Fantastic Mr. Fox-2019-02-10-172416.jpg', '2019-02-10 17:24:16', '2019-02-10 17:24:16');
 
 -- --------------------------------------------------------
 
@@ -191,7 +199,12 @@ INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast
 (10, 'Hot Fuzz', '8.00', 'A skilled London police officer is transferred to a small town with a dark secret.', '16-02-2018', 'Simon Pegg, Nick Frost, Jim Broadbent, Timothy Dalton', 'Edgar Wright', '2 (European Region)', '121 Minutes', 'DVD', 'English', 'Nira Park, Tim Bevan, Eric Fellner', 'Edgar Wright, Simon Pegg', 4, '2019-02-07 20:36:52', '2019-02-07 20:36:52', 12),
 (11, 'Chicken Little', '8.00', 'After ruining his reputation with the town, a courageous chicken must come to the rescue of his fellow citizens when aliens start an invasion.', '04-11-2005', 'Zach Braff, Joan Cusack, Steve Zahn, Garry Marshall', 'Mark Dindal', '2 (European Region)', '81 Minutes', 'DVD', 'English', 'Randy Fullmer', 'Steve Bencich, Ron J. Friedman, Ron Anderson', 3, '2019-02-07 21:01:41', '2019-02-07 21:01:41', 13),
 (12, 'How to Train your Dragon', '8.00', 'A hapless young Viking who aspires to hunt dragons becomes the unlikely friend of a young dragon himself, and learns there may be more to the creatures than he assumed.', '26-03-2010', 'Jay Baruchel, Gerard Butler, Craig Ferguson, America Ferrera', 'Chris Sanders, Dean DeBlois', '2 (European Region)', '98 Minutes', 'DVD', 'English', 'Bonnie Arnold', 'Will Davies, Dean DeBlois, Chris Sanders', 3, '2019-02-07 21:09:49', '2019-02-07 21:09:49', 14),
-(13, 'The Emperor\'s New Groove', '8.00', 'Emperor Kuzco is turned into a llama by his ex-administrator Yzma, and must now regain his throne with the help of Pacha, the gentle llama herder.', '15-12-2000', 'David Spade, John Goodman, Eartha Kitt, Patrick Warburton, Wendie Malick', 'Mark Dindal', '2 (European Region)', '77 Minutes', 'DVD', 'English', 'Randy Fullmer', 'Chris Williams, Mark Dindal', 3, '2019-02-07 21:14:22', '2019-02-07 21:19:31', 15);
+(13, 'The Emperor\'s New Groove', '8.00', 'Emperor Kuzco is turned into a llama by his ex-administrator Yzma, and must now regain his throne with the help of Pacha, the gentle llama herder.', '15-12-2000', 'David Spade, John Goodman, Eartha Kitt, Patrick Warburton, Wendie Malick', 'Mark Dindal', '2 (European Region)', '77 Minutes', 'DVD', 'English', 'Randy Fullmer', 'Chris Williams, Mark Dindal', 3, '2019-02-07 21:14:22', '2019-02-07 21:19:31', 15),
+(14, 'Isle of Dogs', '14.00', 'An outbreak of canine flu in Japan leads all dogs to be quarantined on an island. A boy goes there to rescue his dog and gets help from a pack of dogs who have also been exiled.', '23-03-2018', 'Koyu Rankin, Bryan Cranston, Edward Norton, Bob Balaban, Bill Murray, Jeff Goldblum, Greta Gerwig, Frances McDormand, Kunichi Nomura', 'Wes Andersan', '2 (European Region)', '101 Minutes', 'DVD', 'English, Japanese', 'Wes Anderson, Scott Rudin, Steven Rales, Jeremy Dawson', 'Wes Anderson', 3, '2019-02-10 15:45:22', '2019-02-10 15:45:22', 17),
+(15, 'Megamind', '8.00', 'Notorious villian Megamind becomes an unlikely savior to a troubled city after defeating beloved hero Metro Man and accidentally creating a new villian.', '05-11-2010', 'Will Ferrell, Tina Fey, Jonah Hill, David Cross, Brad Pitt', 'Tom McGrath', '2 (European Region)', '96 Minutes', 'DVD', 'English', 'Lara Breay, Denise Nolan Cascino', 'Alan J. Schoolcraft, Brent Simons', 1, '2019-02-10 15:54:12', '2019-02-10 15:54:54', 18),
+(16, 'Cloudy with a Chance of Meatballs', '8.00', 'Inventor Flint Lockwood and a brainy weathergirl as they attempt to discover why the rain in their small town has stopped and food is falling in its place.', '12-09-2009', 'Bill Hader, Anna Faris, James Caan, Andy Samberg, Bruce Campbell, Mr. T, Benjamin Bratt', 'Phil Lord, Christopher Miller', '2 (European Region)', '90 Minutes', 'DVD', 'English', 'Pam Marsden', 'Phil Lord, Christopher Miller', 3, '2019-02-10 16:00:34', '2019-02-10 16:00:34', 19),
+(17, 'Paranorman', '10.00', 'A small town gets attacked by zombies. Only Norman who can see ghosts can help, he\'ll have to take on ghosts, witches and zombies to save his town from a centuries-old curse.', '17-07-2018', 'Kodi Smit-McPhee, Tucker Albrizzi, Anna Kendrick, Casey Affleck, Christopher Mintz-Plasse, Leslie Mann, Jeff Garlin', 'Sam Fell, Chris Butler', '2 (European Region)', '93 Minutes', 'DVD', 'English', 'Arianne Sutner, Travis Knight', 'Chris Butler', 3, '2019-02-10 16:58:32', '2019-02-10 16:58:32', 21),
+(18, 'Fantastic Mr. Fox', '8.00', 'Mr. and Mrs. Fox live an idyllic home life with their son and visiting young nephew. But after 12 years, Mr Fox slips back into his old ways as a thief, endangering his family and friends.', '13-11-2009', 'George Clooney, Meryl Streep, Jason Schwartzman, Eric Anderson, Michael Gambon, Bill Murray', 'Wes Andersan', '2 (European Region)', '88 Minutes', 'DVD', 'English', 'Allison Abbate, Scott Rudin, Wes Anderson, Jeremy Dawson', 'Wes Anderson, Noah Baumbach', 3, '2019-02-10 17:24:16', '2019-02-10 17:24:16', 23);
 
 -- --------------------------------------------------------
 
@@ -347,7 +360,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', '7bLUIdyMvWMVjd3sW5PJuG5OELoouj46z3DVUgQWEX9XkeO1sS2ycx13dMfP', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', 'lFromOzPwUZlMwQeB2oSQKmN790Pzb4sPvBWORzOf6mMSZm7Ts9GvrZZk8oj', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
 (2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', 'MR77u0SLHrPPiQTgykQoiZKTY7kHLIp17JrcA6DD0bwYKKq0vQP4hzDRqU6A', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
 (3, 'Hosh Hoo', 'hosh@gmail.com', NULL, '$2y$10$u2h8KSwz9bxnJmN8mOOWFub9NVZoweIS0SVDjMLpJcbAya6/t/HCe', NULL, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
 (4, 'JudyAnn Engracio', 'Jae@gmail.com', NULL, '$2y$10$P8tGZUq530l5KCa9t0bfQ.lS0xlzMlFeoXnrDAVzLw0Y6zX23jSxG', '0NUp0DHCKFyfXh1SwoDCnh6ZPJwG9D2KYmmpa78nULcm6ezXhauVx1YFEbMM', '2019-01-30 11:47:23', '2019-01-30 11:47:23');
@@ -462,7 +475,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -474,7 +487,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `movie_order`

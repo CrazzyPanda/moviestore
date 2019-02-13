@@ -22,12 +22,12 @@ Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.ho
 Route::resource('admin/movies', 'Admin\MovieController', array("as"=>"admin"));
 Route::resource('admin/orders', 'Admin\OrderController', array("as"=>"admin"));
 Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));
-Route::get('admin/movies/{id}/edit', 'MovieController@edit')->name('movies.edit');
 
 Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
 Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
 
 Route::get('/movies', 'MovieController@index')->name('movies.index');
 Route::get('/movies/{id}', 'MovieController@show')->name('movies.show');
+Route::get('/genres/{id}', 'GenreController@show')->name('genres.show');
 Route::get('/basket', 'BasketController@view')->name('basket.view');
 Route::post('/basket', 'BasketController@add')->name('basket.add');

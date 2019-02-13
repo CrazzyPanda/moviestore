@@ -13,9 +13,9 @@ class ImagesTableSeeder extends Seeder
     public function run()
     {
         $imageArray = array(
-            'covers/default.png', 'images/avengers-infinity-war.jpg', 'images/coco.jpg',
-            'images/deadpool-2.jpg', 'images/fantastic-beasts.jpg', 'images/oceans-.jpg',
-            'images/the-greatest-showman.jpg', 'images/incredibles-2.jpg', 'images/ant-man-and-the-wasp.jpg'
+            'cover/default.png', 'cover/avengers-infinity-war.jpg', 'cover/coco.jpg',
+            'cover/deadpool-2.jpg', 'cover/fantastic-beasts.jpg', 'cover/oceans-.jpg',
+            'cover/the-greatest-showman.jpg', 'cover/incredibles-2.jpg', 'cover/ant-man-and-the-wasp.jpg'
         );
         foreach($imageArray as $i){
             $image = new Image();
