@@ -8,6 +8,7 @@
                 <div class="col-md-9">
                     <h2>Movie Details</h2>
                 </div>
+                
                 <div class="col-md-3">
                     <a class="btn btn-outline-primary" href="{{ route('admin.movies.edit', $movie) }}">Edit Movie</a>
                 </div>
@@ -83,6 +84,7 @@
 
                 <!-- </div> -->
             </div>
+
         </div>
     </div>
 </div>

@@ -20,6 +20,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Price</th>
+                                <th>Genre</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -31,7 +32,8 @@
                             <tr>
                                 <td>{{ $movie->id }}</td>
                                 <td>{{ $movie->name }}</td>
-                                <td>€ {{ $movie->price }}</td>
+                                <td>€{{ $movie->price }}</td>
+                                <td>{{ $movie->genre->name }}</td>
                                 <td><a class="btn btn-outline-primary" href="{{ route('admin.movies.show', $movie) }}">View</a></td>
                                 <td><a class="btn btn-outline-primary" href="{{ route('admin.movies.edit', $movie) }}">Edit</a></td>
                                 <td><form action="{{ route('admin.movies.destroy', $movie)}}" method="POST">
