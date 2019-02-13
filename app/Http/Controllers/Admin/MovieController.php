@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Genre;
 use App\Movie;
 use App\Image;
+use App\Review;
 use App\Http\Controllers\Controller;
 use Storage;
 
@@ -19,7 +20,7 @@ class MovieController extends Controller
 
     public function index()
     {
-        $movies = Movie::all();
+        $movies = Movie::orderBy('created_at', 'DESC')->get();
 
         return view('admin.movies.index')->with([
             'movies' => $movies
@@ -29,7 +30,17 @@ class MovieController extends Controller
     public function show($id)
     {
         $movie = Movie::findOrFail($id);
-        return view('admin.movies.show')->with(['movie' => $movie]);
+        return view('admin.movies.show')->with([
+            'movie' => $movie
+        ]);
+    }
+
+    public function review($id)
+    {
+        $review = Review::findOrFail($id);
+        return view('admin.movies.review')->with([
+            'review' => $review
+        ]);
     }
 
     public function create()

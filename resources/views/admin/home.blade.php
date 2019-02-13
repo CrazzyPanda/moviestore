@@ -29,18 +29,18 @@
                         <table class="table table-striped table-dark table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Order ID</th>
-                                    <th scope="col">Total Price</th>
                                     <th scope="col">Customer Email</th>
+                                    <th scope="col">Total Price</th>
+                                    <th scope="col">Date Purchased</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 @foreach ($orders as $order)
                                 <tr>
-                                    <td>{{ $order->id }}</td>
-                                    <td>{{ $order->totalCost() }}</td>
                                     <td>{{ $order->customer->user->email }}</td>
+                                    <td>€{{ $order->totalCost() }}</td>
+                                    <td>{{ $order->date }}</td>
                                 </tr>
                                 @endforeach
 
@@ -61,18 +61,18 @@
                         <table class="table table-striped table-dark table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Movie ID</th>
                                     <th scope="col">Movie Name</th>
                                     <th scope="col">Movie Price</th>
+                                    <th scope="col">Movie Genre</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 @foreach ($movies as $movie)
                                 <tr>
-                                    <td>{{ $movie->id }}</td>
                                     <td>{{ $movie->name }}</td>
-                                    <td>{{ $movie->price }}</td>
+                                    <td>€{{ $movie->price }}</td>
+                                    <td>{{ $movie->genre->name }}</td>
                                 </tr>
                                 @endforeach
 
@@ -93,7 +93,6 @@
                         <table class="table table-striped table-dark table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">User ID</th>
                                     <th scope="col">User Name</th>
                                     <th scope="col">User Email</th>
                                 </tr>
@@ -102,7 +101,6 @@
 
                                 @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                 </tr>

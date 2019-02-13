@@ -13,9 +13,9 @@
                         <thead>
                             <tr>
                                 <th>Order ID</th>
+                                <th>Customer Email</th>
                                 <th>Order Total</th>
                                 <th>Date Purchased</th>
-                                <th>Customer Email</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -24,9 +24,9 @@
                             @foreach ($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
+                                <td>{{ $order->customer->user->email }}</td>
                                 <td>€ {{ $order->totalCost() }}</td>
                                 <td>{{ $order->date }}</td>
-                                <td>{{ $order->customer->user->email }}</td>
                                 <td><a class="btn btn-outline-primary" href="{{ route('admin.orders.show', $order) }}">View</a></td>
                             </tr>
                             @endforeach

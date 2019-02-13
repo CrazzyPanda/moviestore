@@ -19,12 +19,15 @@
                             </tr>
                         </thread>
                         <tbody>
+                            @foreach ($user->customer->orders as $order)
                             <tr>
-                                <td>{{ $orders->id }}</td>
-
+                                <td>{{ $order->id }}</td>
+                                <td>€ {{ $order->totalCost() }}</td>
                                 <td>{{ $order->date }}</td>
-                                <td>{{ $order->totalCost() }}</td>
+                                <td>{{ $order->customer->user->email }}</td>
+                                
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

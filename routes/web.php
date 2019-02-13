@@ -22,7 +22,7 @@ Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.ho
 Route::resource('admin/movies', 'Admin\MovieController', array("as"=>"admin"));
 Route::resource('admin/orders', 'Admin\OrderController', array("as"=>"admin"));
 Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));
-Route::get('admin/movies/{id}/edit', 'MovieController@edit')->name('movies.edit');
+//Route::get('admin/movies/{id}/edit', 'MovieController@edit')->name('movies.edit');
 
 Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
 Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));

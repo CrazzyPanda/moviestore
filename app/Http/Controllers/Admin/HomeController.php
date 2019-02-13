@@ -8,6 +8,7 @@ use App\Order;
 use App\Movie;
 use App\User;
 use App\Customer;
+use App\Role;
 
 class HomeController extends Controller
 {
@@ -19,9 +20,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $orders = Order::all();
-        $movies = Movie::all();
-        $users = User::all();
+        $orders = Order::take(5)->orderBy('created_at', 'DESC')->get();
+        $movies = Movie::take(5)->orderBy('created_at', 'DESC')->get();
+        $users = User::take(5)->orderBy('created_at', 'DESC')->get();
+        $users = Role::where('name', 'customer')->first()->users;
 
         return view('admin.home')->with([
             'orders' => $orders,

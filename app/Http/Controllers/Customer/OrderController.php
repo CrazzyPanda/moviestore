@@ -9,6 +9,7 @@ use App\Order;
 use App\Movie;
 use App\User;
 use App\Customer;
+use App\Role;
 
 
 class OrderController extends Controller
@@ -21,7 +22,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        // $orders = Order::all();
+        $orders = Order::all();
         $user = Auth::user();
 
         $order = $user->customer;
@@ -29,5 +30,14 @@ class OrderController extends Controller
         return view('customer.orders.index')->with([
             'orders' => $orders
         ]);
+
+        // $users = Role::where('name', 'customer')->first()->users;
+        //
+        // return view('customer.orders.index')->with([
+        //     'users' => $users
+        // ]);
+
+        // $user = User::findOrFail($id);
+        // return view('customer.orders.index')->with(['user' => $user]);
     }
 }
