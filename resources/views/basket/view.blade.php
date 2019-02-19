@@ -7,7 +7,6 @@
             <div>
                 <h3 class="title">Shopping Basket</h3>
             </div>
-            <p></p>
             <div>
                 @if ($basket->isEmpty())
                     <p>There are no items in your shopping basket.</p>
@@ -32,16 +31,12 @@
                                 <td>€ {{ number_format($item->getTotalPrice(), 2) }}</td>
                             </tr>
                             @endforeach
-                        </tbody>
-                    </table>
-                    <table class="table">
-                        <tbody>
                             <tr>
                                 <th>Order Total:</th>
+                                <td colspan="2"></td>
                                 <td>€ {{ $basket->getTotalPrice() }}</td>
                             </tr>
                         </tbody>
-                    </table>
                 @endif
             </div>
         </div>

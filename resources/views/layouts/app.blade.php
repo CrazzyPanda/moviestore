@@ -22,8 +22,11 @@
 </head>
 <body>
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-      <div class="container">
+    <nav class="navbar navbar-expand-md navbar-laravel" id="top">
+        <div class="navbar-brand">
+          <img src="{{ URL::asset('storage/css/LogoMakr_6pJHDs.png') }}" width="100" height="55" alt="OMS Logo">
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
@@ -32,9 +35,9 @@
                 <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" role="button"
                   aria-haspopup="true" aria-expanded="false">Categories</a>
-              <div class="dropdown-menu">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   @foreach (App\Genre::all() as $genre)
                   <a class="dropdown-item" href="{{ route('genres.show', $genre) }}">{{ $genre->name}}</a>
                   @endforeach
@@ -67,9 +70,9 @@
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ route('customer.profiles.index') }}">View Profile</a>
-                <a class="dropdown-item" href="{{ route('customer.orders.index') }}">View Order History</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a class="dropdown-item nav-link" href="{{ route('customer.profiles.index') }}">View Profile</a>
+                <a class="dropdown-item nav-link" href="{{ route('customer.orders.index') }}">View Order History</a>
+                <a class="dropdown-item nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}
                 </a>
@@ -77,7 +80,7 @@
                     @csrf
                 </form>
                 @elseif (Auth::user() != null && Auth::user()->hasRole('admin'))
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a class="dropdown-item nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}
                 </a>
@@ -96,12 +99,41 @@
             @endif
           </ul>
         </div>
-      </div>
     </nav>
 
     <main class="py-4">
         @yield('content')
     </main>
+
+    <div class="footer">
+      <ul>
+        <li>
+          <a class="footer-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="footer-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="footer-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+        <li><a class="footer-link" href="#">About Us</a></li>
+      </ul>
+      <ul>
+        <li><a class="footer-link" href="#">Help</a></li>
+        <li><a class="footer-link" href="#">Privacy Policy</a></li>
+        <li><a class="footer-link" href="#">Cookies</a></li>
+        <li><a class="footer-link" href="#">Terms & Conditions</a></li>
+      </ul>
+      <ul>
+        <li><p>Follow Us:</p></li>
+        <li><a class="footer-link" href="#">Facebook</a></li>
+        <li><a class="footer-link" href="#">Instagram</a></li>
+        <li><a class="footer-link" href="#">Twitter</a></li>
+      </ul>
+
+      <p>Created my free logo at <a href="https://my.logomakr.com/">LogoMakr.com</a></p>
+      <p>Copyright &copy; 2018 OMS.com. All Rights Reserved.</p>
+    </div>
   </div>
 </body>
 </html>

@@ -11,12 +11,12 @@ use App\Genre;
 
 class GenreController extends Controller
 {
-    public function show($id)
+    public function index($id)
     {
         $genre = Genre::findOrFail($id);
         $movies = $genre->movies;
 
-        return view('genres.show')->with([
+        return view('genres.index')->with([
             'movies' => $movies,
             'genre' => $genre
         ]);

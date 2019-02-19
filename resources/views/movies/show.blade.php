@@ -19,31 +19,32 @@
         </div>
       </div>
     </div>
+    <!-- !Modal -->
 
     <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" style="height: 400px;">
-          </div>
-        </div>
-
-        <div class="col-8">
-            <div><h3 class="title">{{ $movie->name }}</h3></div>
-            <div><p class="genre">{{ $movie->genre->name }}</i></div>
-            <div><p>{{ $movie->summary }}</p></div>
-            <div><p>€{{ $movie->price }}</p></div>
-            <div>
-                @if (Auth::user() == null || Auth::user()->hasRole('customer'))
-                    <form action="{{ route('basket.add')}}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                        <button type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
-                    </form>
-                @endif
-            </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" style="height: 400px;">
         </div>
       </div>
-      <hr>
+
+      <div class="col-8">
+          <div><h3 class="title">{{ $movie->name }}</h3></div>
+          <div><p class="genre">{{ $movie->genre->name }}</i></div>
+          <div><p>{{ $movie->summary }}</p></div>
+          <div><p>€{{ $movie->price }}</p></div>
+          <div>
+              @if (Auth::user() == null || Auth::user()->hasRole('customer'))
+                  <form action="{{ route('basket.add') }}" method="POST">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="movie_id" value="{{ $movie->id }}">
+                      <button type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
+                  </form>
+              @endif
+          </div>
+      </div>
+    </div>
+    <hr>
 
     <div class="row">
         <div class="col-md-12">
@@ -56,28 +57,24 @@
             <p><span class="movieLabel">Release Date: </span>{{ $movie->releaseDate }}</p>
             <p><span class="movieLabel">Region: </span>{{ $movie->region }}</p>
             <p><span class="movieLabel">Language: </span>{{ $movie->language }}</p>
-            <!-- <p>Type: {{ $movie->type }}</p> -->
         </div>
     </div>
     <hr>
 
     <div class="row">
-        <div class="col-md-12">
-            <div><h5 class="title">Reviews</h5></div>
-            @foreach ($reviews as $review)
-            <p>By: {{ $review->customer->user->name }}</p>
-            <div class='row'>
-                <div class='col-md-3'>
-                    <p>{{ $review->title }}</p>
-                    <p><small>{{ $review->date }}</small></p>
-                </div>
-                <div class='col-md-9'>
-                    <p>{{ $review->starRating }}/5 stars</p>
-                </div>
-            </div>
+      <div class="col-12">
+        <h5 class="title">Reviews</h5>
+        <div><a class="btn btn-primary" href="{{ route('customer.reviews.create') }}">Write a review.</a></div>
+          @foreach ($reviews as $review)
+            <p class=""><img src="{{ URL::asset('storage/css/user.svg') }}" width="35" height="35" alt="User">{{ $review->customer->user->name }}</p>
+            <p class="reviewHeader">
+              <span class="reviewTitle">{{ $review->title }}</span>
+              <span class="reviewRating">{{ $review->starRating }}/5 stars</span>
+            </p>
+            <p>{{ $review->date }}</p>
             <p>{{ $review->text }}</p>
-            @endforeach
-        </div>
+          @endforeach
+      </div>
     </div>
 </div>
 @endsection

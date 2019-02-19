@@ -35,14 +35,6 @@ class MovieController extends Controller
         ]);
     }
 
-    public function review($id)
-    {
-        $review = Review::findOrFail($id);
-        return view('admin.movies.review')->with([
-            'review' => $review
-        ]);
-    }
-
     public function create()
     {
         $genres = Genre::all();

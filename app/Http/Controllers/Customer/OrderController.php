@@ -28,15 +28,6 @@ class OrderController extends Controller
         return view('customer.orders.index')->with([
             'orders' =>$orders
         ]);
-
-        // $users = Role::where('name', 'customer')->first()->users;
-        //
-        // return view('customer.orders.index')->with([
-        //     'users' => $users
-        // ]);
-
-        // $user = User::findOrFail($id);
-        // return view('customer.orders.index')->with(['user' => $user]);
     }
 
     public function show($id)
