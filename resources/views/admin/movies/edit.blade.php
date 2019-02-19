@@ -137,7 +137,7 @@
                             </tbody>
                         </table>
                         <input class="btn btn-outline-primary" type="submit" value="Save"/>
-                        <a class="btn btn-outline-primary" href="{{ route('admin.movies.index') }}">Cancel</a>
+                        <a class="btn btn-outline-secondary" href="{{ route('admin.movies.index') }}">Cancel</a>
                     </form>
                 </div>
             </div>

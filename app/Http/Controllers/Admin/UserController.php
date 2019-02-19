@@ -30,7 +30,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.show')->with(['user' => $user]);
+        return view('admin.users.show')->with([
+            'user' => $user
+        ]);
 
         // $order = Order::findOrFail($id);
         // return view('admin.users.show')->with(['order' => $order]);

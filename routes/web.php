@@ -33,3 +33,9 @@ Route::get('/movies/{id}', 'MovieController@show')->name('movies.show');
 Route::get('/genres/{id}', 'GenreController@index')->name('genres.show');
 Route::get('/basket', 'BasketController@view')->name('basket.view');
 Route::post('/basket', 'BasketController@add')->name('basket.add');
+Route::get('/basket/edit', 'BasketController@edit')->name('basket.edit');
+Route::put('/basket', 'BasketController@update')->name('basket.update');
+
+Route::get('/basket/checkout', 'BasketController@checkout')->name('basket.checkout');
+Route::post('/basket/pay', 'BasketController@pay')->name('basket.pay');
+// Route::resource('/basket', 'BasketController', array("as"=>"basket"));

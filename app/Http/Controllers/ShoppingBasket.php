@@ -30,28 +30,28 @@ class ShoppingBasket {
             $this->items[$movie->id] = $item;
         }
     }
-    //
-    // public function update($movie, $qty) {
-    //     if (isset($this->items[$movie->id])) {
-    //         if ($qty > 0) {
-    //             $item = $this->items[$movie->id];
-    //             $item->setQuantity($qty);
-    //         }
-    //         else if ($qty == 0) {
-    //             $this->item[$movie->id] = NULL;
-    //             unset($this->items[$movie->id]);
-    //         }
-    //     }
-    //     else {
-    //         throw new Exception("Illegal request.");
-    //     }
-    // }
+
+    public function update($movie, $qty) {
+        if (isset($this->items[$movie->id])) {
+            if ($qty > 0) {
+                $item = $this->items[$movie->id];
+                $item->setQuantity($qty);
+            }
+            else if ($qty == 0) {
+                $this->item[$movie->id] = NULL;
+                unset($this->items[$movie->id]);
+            }
+        }
+        else {
+            throw new Exception("Illegal request.");
+        }
+    }
 
     public function isEmpty() {
         return empty($this->items);
     }
 
-    // public function removeAll() {
-    //     $this->items = array();
-    // }
+    public function removeAll() {
+        $this->items = array();
+    }
 }

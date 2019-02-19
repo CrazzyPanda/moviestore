@@ -19,11 +19,11 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($reviews as $review)
+                            @foreach ($movie->reviews as $review)
                             <tr>
                                 <td>{{ $review->customer->user->name }}</td>
                                 <td>{{ $review->title }}</td>
-                                <td>{{ $review->starRating }}</td>
+                                <td>{{ $review->starRating }}/5 Stars</td>
                                 <td>{{ $review->text }}</td>
                                 <td>{{ $review->date }}</td>
                             </tr>
