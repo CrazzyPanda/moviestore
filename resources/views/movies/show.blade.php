@@ -38,7 +38,7 @@
                   <form action="{{ route('basket.add') }}" method="POST">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                      <button type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
+                      <button class="btn btn-outline-primary" type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
                   </form>
               @endif
           </div>
@@ -57,6 +57,7 @@
             <p><span class="movieLabel">Release Date: </span>{{ $movie->releaseDate }}</p>
             <p><span class="movieLabel">Region: </span>{{ $movie->region }}</p>
             <p><span class="movieLabel">Language: </span>{{ $movie->language }}</p>
+            <p><span class="movieLabel">Type: </span>{{ $movie->type }}</p>
         </div>
     </div>
     <hr>
@@ -64,16 +65,18 @@
     <div class="row">
       <div class="col-12">
         <h5 class="title">Reviews</h5>
-        <div><a class="btn btn-primary" href="{{ route('customer.reviews.create') }}">Write a review.</a></div>
-          @foreach ($reviews as $review)
-            <p class=""><img src="{{ URL::asset('storage/icons/user.svg') }}" width="35" height="35" alt="User">{{ $review->customer->user->name }}</p>
-            <p class="reviewHeader">
-              <span class="reviewTitle">{{ $review->title }}</span>
-              <span class="reviewRating">{{ $review->starRating }}/5 stars</span>
-            </p>
-            <p>{{ $review->date }}</p>
-            <p>{{ $review->text }}</p>
-          @endforeach
+        @if (Auth::user() != null && Auth::user()->hasRole('customer'))
+          <div><a class="btn btn-primary" href="{{ route('movies.reviews.create', $movie->id) }}">Write a review</a></div>
+        @endif
+        @foreach ($reviews as $review)
+          <p class=""><img src="{{ URL::asset('storage/icons/user.svg') }}" width="35" height="35" alt="User">{{ $review->customer->user->name }}</p>
+          <p class="reviewHeader">
+            <span class="reviewTitle">{{ $review->title }}</span>
+            <span class="reviewRating">{{ $review->starRating }}/5 stars</span>
+          </p>
+          <p>{{ $review->date }}</p>
+          <p>{{ $review->text }}</p>
+        @endforeach
       </div>
     </div>
 </div>

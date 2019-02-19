@@ -33,4 +33,3 @@ class MovieController extends Controller
         ]);
     }
 }
-//regex:/^\d*(\.\d{6,2})?$/

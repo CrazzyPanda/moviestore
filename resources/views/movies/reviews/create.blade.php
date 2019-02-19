@@ -5,22 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Write a review</div>
+                <div class="card-header">Write a review for {{ $movie->name }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route("movies.reviews.store", $movie->id) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <table>
                             <tbody>
                               <div class="form-group">
                                 <label>Star Rating</label>
-                                  <select class="form-control">
-                                    @foreach ($ratings as $rating)
-                                      <option>{{ $rating->starRating }}</option>
-                                    @endforeach
+                                  <select class="form-control" name="starRating">
+                                    <option {{ (old('starRating') == 1) ? "selected" : "" }}>1</option>
+                                    <option {{ (old('starRating') == 2) ? "selected" : "" }}>2</option>
+                                    <option {{ (old('starRating') == 3) ? "selected" : "" }}>3</option>
+                                    <option {{ (old('starRating') == 4) ? "selected" : "" }}>4</option>
+                                    <option {{ (old('starRating') == 5) ? "selected" : "" }}>5</option>
                                   </select>
                               </div>
-                              
+
                               <div class="form-group">
                                   <label>Title:</label>
                                   <input class="form-control" type="text" name="title" value="{{ old('title') }}" />
@@ -31,7 +33,7 @@
 
                               <div class="form-group">
                                   <label>Review:</label>
-                                  <textarea class="form-control" type="text" name="text" value="{{ old('text') }}" /></textarea>
+                                  <textarea class="form-control" type="text" name="text">{{ old('text') }}</textarea>
                                   @if ($errors->has('text'))
                                     <div class="error">{{ $errors->first('text') }}</div>
                                   @endif

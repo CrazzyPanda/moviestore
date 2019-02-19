@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2019 at 07:24 PM
+-- Generation Time: Feb 19, 2019 at 12:44 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -160,7 +160,16 @@ INSERT INTO `images` (`id`, `path`, `created_at`, `updated_at`) VALUES
 (57, 'cover/Me Before You-2019-02-12-200222.png', '2019-02-12 20:02:22', '2019-02-12 20:02:22'),
 (58, 'cover/Love, Rosie-2019-02-12-200544.jpg', '2019-02-12 20:05:44', '2019-02-12 20:05:44'),
 (59, 'cover/Dear John-2019-02-12-200902.jpg', '2019-02-12 20:09:02', '2019-02-12 20:09:02'),
-(60, 'cover/Tomb Raider-2019-02-12-204723.jpg', '2019-02-12 20:47:23', '2019-02-12 20:47:23');
+(60, 'cover/Tomb Raider-2019-02-12-204723.jpg', '2019-02-12 20:47:23', '2019-02-12 20:47:23'),
+(61, 'cover/Casino Royale-2019-02-18-122201.jpg', '2019-02-18 12:22:02', '2019-02-18 12:22:02'),
+(62, 'cover/Kick-Ass-2019-02-18-123005.jpg', '2019-02-18 12:30:05', '2019-02-18 12:30:05'),
+(63, 'cover/Mission Impossible Fallout-2019-02-18-123443.jpg', '2019-02-18 12:34:43', '2019-02-18 12:34:43'),
+(64, 'cover/Kingsman The Secret Service-2019-02-18-124056.png', '2019-02-18 12:40:56', '2019-02-18 12:40:56'),
+(65, 'cover/Jack Reacher-2019-02-18-161917.jpg', '2019-02-18 16:19:17', '2019-02-18 16:19:17'),
+(66, 'cover/Atomic Blonde-2019-02-18-163100.jpg', '2019-02-18 16:31:00', '2019-02-18 16:31:00'),
+(67, 'cover/The Fate of the Furious-2019-02-18-163710.png', '2019-02-18 16:37:10', '2019-02-18 16:37:10'),
+(68, 'cover/American Assassin-2019-02-18-164211.jpg', '2019-02-18 16:42:11', '2019-02-18 16:42:11'),
+(69, 'cover/Peppermint-2019-02-18-164457.png', '2019-02-18 16:44:57', '2019-02-18 16:44:57');
 
 -- --------------------------------------------------------
 
@@ -224,7 +233,7 @@ CREATE TABLE `movies` (
 
 INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast`, `directors`, `region`, `runTime`, `type`, `language`, `producers`, `writers`, `genre_id`, `created_at`, `updated_at`, `image_id`) VALUES
 (1, 'Fantastic Beasts and Where to Find Them', '12.00', 'Newt Scamander arrives in New York city searching for beasts from around the world but, he gets caught up in a conflict when some of the magical creatures in his care escape.', '18-11-2016', 'Eddie Redmayne, Katherine Waterston, Dan Fogler, Alison Sudol, Ezra Miller', 'David Yates', '2 (European Region)', '133 Minutes', 'DVD', 'English', 'David Heyman, J.K. Rowling, Steve Kloves, Lional Wigram', 'J.K. Rowling', 7, '2019-01-23 10:34:56', '2019-02-12 12:11:21', 27),
-(2, 'Avengers: Infinity War', '14.00', 'The Avengers and their allies must be willing to sacrifice everything in an attempt to defeat the all powerful Thanos before his blitz of destruction and utter devastation.', '23-04-2018', 'Robert Downey Jr., Chris Hemsworth, Elizabeth Olsen, Chris Evens, Zoe Saldana, Josh Brolin', 'Anthony Russo, Joe Russo', '2 (European Region)', '149 Minutes', 'DVD', 'English', 'Kevin Feige', 'Christopher Markus, Stephen McFeely', 7, '2019-01-23 11:34:56', '2019-02-05 14:53:07', 1),
+(2, 'Avengers Infinity War', '14.00', 'The Avengers and their allies must be willing to sacrifice everything in an attempt to defeat the all powerful Thanos before his blitz of destruction and utter devastation.', '23-04-2018', 'Robert Downey Jr., Chris Hemsworth, Elizabeth Olsen, Chris Evens, Zoe Saldana, Josh Brolin', 'Anthony Russo, Joe Russo', '2 (European Region)', '149 Minutes', 'DVD', 'English', 'Kevin Feige', 'Christopher Markus, Stephen McFeely', 7, '2019-01-23 11:34:56', '2019-02-18 12:41:26', 1),
 (3, 'Deadpool 2', '14.00', 'Foul-mouthed mutant mercenary Deadpool, brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.', '18-05-2018', 'Ryan Reynolds, Josh Brolin, Zazie Beetz, Julian Dennison', 'David Leitch', '2 (European Region)', '119 Minutes', 'DVD', 'English', 'Simon Kinberg, Lauren Shuler Donner, Ryan Reynolds', 'Rhett Reese, Paul Wernick, Ryan Reynolds', 7, '2019-01-23 12:34:56', '2019-02-12 12:16:36', 28),
 (4, 'Coco', '10.00', 'Aspiring musician Miguel, confronted with his family\'s ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.', '22-11-2017', 'Anthony Gonzalez, Gael Garcia, Benjamin Bratt, Alanna Ubach, Renee Victor', 'Lee Unkrich', '2 (European Region)', '105 Minutes', 'DVD', 'English', 'Darla K. Anderson', 'Adrian Molina, Matthew Aldrich', 3, '2019-01-23 13:34:56', '2019-02-12 12:21:38', 29),
 (5, 'The Greatest Showman', '12.00', 'Celebrates the birth of show business and tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.', '20-12-2017', 'Hugh Jackman, Zac Efron, Zendaya, Michelle Williams, Rebecca Ferguson', 'Michael Gracey', '2 (European Region)', '105 Minutes', 'DVD', 'English', 'Laurence Mark, Peter Chernin, Jenno Topping', 'Jenny Bicks, Bill Condon', 13, '2019-01-23 14:34:56', '2019-02-12 12:18:58', 30),
@@ -268,7 +277,16 @@ INSERT INTO `movies` (`id`, `name`, `price`, `summary`, `releaseDate`, `mainCast
 (43, 'Me Before You', '12.00', 'A girl in a small town forms an unlikely bond with a recently-paralyzed man she\'s taking care of.', '23-03-2016', 'Emilia Clarke, Sam Claflin, Jenna Coleman, Charles Dance, Janet McTeer, Matthew Lewis', 'Thea Sharrock', '2 (European Region)', '110 Minutes', 'DVD', 'English', 'Karen Rosenfelt, Alison Owen', 'Jojo Moyes', 14, '2019-02-12 20:02:22', '2019-02-12 20:02:22', 57),
 (44, 'Love, Rosie', '10.00', 'Rosie and Alex have been best friends since they were 5, so they couldn\'t possibly be right for one another...or could they?', '22-10-2014', 'Lily Collins, Sam Claflin, Christian Cooke, Tamsin Egerton, Suki Waterhouse', 'Christian Ditter', '2 (European Region)', '102 Minutes', 'DVD', 'English', 'Robert Kulzer, Simon Brooks', 'Juliette Towhidi', 14, '2019-02-12 20:05:44', '2019-02-12 20:05:44', 58),
 (45, 'Dear John', '10.00', 'A romantic drama about a soldier who falls for a conservative college student while he\'s home on leave.', '05-02-2010', 'Channing Tatum, Amanda Seyfried, Henry Thomas, Richard Jenkins', 'Lasse Hallström', '2 (European Region)', '107 Minutes', 'DVD', 'English', 'Marty Bowen, Wyck Godfrey, Ryan Kavanaugh', 'Jamie Linden', 14, '2019-02-12 20:09:02', '2019-02-12 20:09:02', 59),
-(46, 'Tomb Raider', '14.00', 'Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she discovers the island where her father disappeared.', '16-03-2018', 'Alicia Vikander, Dominic West, Walton Goggins, Daniel Wu', 'Roar Uthaug', '2 (European Region)', '118 Minutes', 'DVD', 'English', 'Graham King', 'Geneva Robertson-Dworet, Alastair Siddons', 1, '2019-02-12 20:47:23', '2019-02-12 20:47:23', 60);
+(46, 'Tomb Raider', '14.00', 'Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she discovers the island where her father disappeared.', '16-03-2018', 'Alicia Vikander, Dominic West, Walton Goggins, Daniel Wu', 'Roar Uthaug', '2 (European Region)', '118 Minutes', 'DVD', 'English', 'Graham King', 'Geneva Robertson-Dworet, Alastair Siddons', 1, '2019-02-12 20:47:23', '2019-02-12 20:47:23', 60),
+(47, 'Casino Royale', '8.00', 'James Bond sets out on his first mission as 007 and must defeat a private banker to terrorists in a high stakes game of poker at Casino Royale but things are not what they seem.', '17-11-2018', 'Daniel Craig, Eva Green, Mads Mikkelsen, Giancarlo Giannini, Jeffrey Wright, Judi Dench', 'Martin Campbell', '2 (European Region)', '144 Minutes', 'DVD', 'English', 'Michael G. Wilson, Barbara Broccoli', 'Neal Purvis, Robert Wade, Paul Haggis', 1, '2019-02-18 12:22:02', '2019-02-18 12:22:02', 61),
+(48, 'Kick-Ass', '8.00', 'Dave Lizewski is an unnoticed high school student and comic book fan who one day decides to become a superhero, even though he has no powers, training or meaningful reason to do so.', '16-04-2010', 'Aaron Johnson, Christopher Mintz-Plasse, Mark Strong, Chloë Grace Moretz, Nicolas Cage', 'Matthew Vaughn', '2 (European Region)', '117 Minutes', 'DVD', 'English', 'Matthew Vaughn, Brad Pitt, Kris Thykier, Adam Bohling, Tarquin Pack, David Reid', 'Jane Goldman, Matthew Vaughn', 1, '2019-02-18 12:30:05', '2019-02-18 12:30:05', 62),
+(49, 'Mission Impossible Fallout', '14.00', 'Ethan Hunt and his IMF team, along with some familiar allies, race against time after a mission gone wrong.', '27-07-2018', 'Tom Cruise, Henry Cavill, Ving Rhames, Simon Pegg, Rebecca Ferguson, Angela Bassett, Michelle Monaghan', 'Christopher McQuarrie', '2 (European Region)', '147 Minutes', 'DVD', 'English', 'J. J. Abrams, Tom Cruise, Christopher McQuarrie, Jake Myers', 'Christopher McQuarrie', 1, '2019-02-18 12:34:44', '2019-02-18 12:34:44', 63),
+(50, 'Kingsman The Secret Service', '12.00', 'A spy organization recruits an unrefined, but promising street kid into the agency\'s ultra-competitive training program, just as a global threat emerges from a twisted tech genius.', '13-02-2014', 'Colin Firth, Samuel L. Jackson, Mark Strong, Taron Egerton, Sophie Cookson, Michael Caine', 'Matthew Vaughn', '2 (European Region)', '129 Minutes', 'DVD', 'English', 'Matthew Vaughn, David Reid, Adam Bohling', 'Jane Goldman, Matthew Vaughn', 1, '2019-02-18 12:40:56', '2019-02-18 12:40:56', 64),
+(51, 'Jack Reacher', '10.00', 'A homicide investigator digs deeper into a case involving a trained military sniper who shot five random victims.', '21-12-2012', 'Tom Cruise, Rosamund Pike, Richard Jenkins, Werner Herzog, David Oyelowo, Robert Duvall', 'Christopher McQuarrie', '2 (European Region)', '130 minutes', 'DVD', 'English', 'Tom Cruise, Don Granger, Paula Wagner, Gary Levinsohn', 'Christopher McQuarrie', 1, '2019-02-18 16:19:17', '2019-02-18 16:19:17', 65),
+(52, 'Atomic Blonde', '12.00', 'An undercover MI6 agent is sent to Berlin during the Cold War to investigate the murder of a fellow agent and recover a missing list of double agents.', '28-07-2017', 'Charlize Theron, James McAvoy', 'David Leitch', '2 (European Region)', '115 Minutes', 'DVD', 'English', 'Charlize Theron, Beth Kono, A. J. Dix, Kelly McCormick, Eric Gitter, Peter Schwerin', 'Kurt Johnstad', 1, '2019-02-18 16:31:00', '2019-02-18 16:31:00', 66),
+(53, 'The Fate of the Furious', '12.00', 'When a mysterious woman seduces Dom into the world of terrorism and a betrayal of those closest to him, the crew face trials that will test them as never before.', '14-04-2017', 'Vin Diesel, Dwayne Johnson, Jason Statham, Michelle Rodriguez, Tyrese Gibson, Chris Bridges, Nathalie Emmanuel, Elsa Pataky, Charlize Theron', 'F. Gary Gray', '2 (European Region)', '136 Minutes', 'DVD', 'English', 'Neal H. Moritz, Vin Diesel, Michael Fottrell, Chris Morgan', 'Chris Morgan', 1, '2019-02-18 16:37:10', '2019-02-18 16:37:10', 67),
+(54, 'American Assassin', '12.00', 'After the death of his girlfriend at the hands of terrorists, Mitch Rapp is drawn into the world of counterterrorism, mentored by tough-as-nails former U.S. Navy S.E.A.L. Stan Hurley.', '15-09-2017', 'Dylan O\'Brien, Michael Keaton, Sanaa Lathan, Shiva Negar, Taylor Kitsch', 'Michael Cuesta', '2 (European Region)', '111 Minutes', 'DVD', 'English', 'Lorenzo di Bonaventura, Nick Wechsler', 'Stephen Schiff, Michael Finch, Edward Zwick, Marshall Herskovitz', 1, '2019-02-18 16:42:11', '2019-02-18 16:42:11', 68),
+(55, 'Peppermint', '14.00', 'Five years after her husband and daughter are killed in a shooting, a woman comes back from self-imposed exile to seek revenge against those responsible and the system that let them go free.', '07-09-2018', 'Jennifer Garner, John Ortiz, John Gallagher Jr. Juan Pablo Raba, Tyson Ritter', 'Pierre Morel', '2 (European Region)', '102 Minutes', 'DVD', 'English', 'Gary Lucchesi, Tom Rosenberg, Richard S. Wright', 'Chad St. John', 1, '2019-02-18 16:44:57', '2019-02-18 16:44:57', 69);
 
 -- --------------------------------------------------------
 
@@ -424,8 +442,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', 'RYoqnOU3hzf1VsI36WoOoAczFW6aiKDvLeEUF5S3R13NMGz1EOVmxB6T2atv', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
-(2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', 'ntgvuYTFwshuZrxNSsqZHKOM12UInSb14w5eww5yHTUCZmoGqShQJvetxlD3', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
+(1, 'Jacea', 'Jacea@gmail.com', NULL, '$2y$10$zFABV70drYky1tPUUUdjnuHv1tLNuFlF7IXQbZBAK4Jwr.968Y9Bq', 'zdN9F0peIIZzXLD7yA3QPYjQZUIRmNsgfXobqlnUynEY0BSd1zAHRijEdK6C', '2019-01-23 14:34:54', '2019-01-23 14:34:54'),
+(2, 'Grace Cautley', 'grace@gmail.com', NULL, '$2y$10$HKPg8Z0JXkUOQExIqv8dH.PASFOP6lv92eLOElV2tskuQXUxu.gkW', '5aSOh2IhDLJHQlaSlIvt6MPxRB2BBeCTOzxm7MufxJDN7XljQLZvvsoJzUxO', '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
 (3, 'Hosh Hoo', 'hosh@gmail.com', NULL, '$2y$10$u2h8KSwz9bxnJmN8mOOWFub9NVZoweIS0SVDjMLpJcbAya6/t/HCe', NULL, '2019-01-23 14:34:56', '2019-01-23 14:34:56'),
 (4, 'JudyAnn Engracio', 'Jae@gmail.com', NULL, '$2y$10$P8tGZUq530l5KCa9t0bfQ.lS0xlzMlFeoXnrDAVzLw0Y6zX23jSxG', '0NUp0DHCKFyfXh1SwoDCnh6ZPJwG9D2KYmmpa78nULcm6ezXhauVx1YFEbMM', '2019-01-30 11:47:23', '2019-01-30 11:47:23');
 
@@ -539,7 +557,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -551,7 +569,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `movie_order`

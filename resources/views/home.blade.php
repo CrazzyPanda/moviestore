@@ -37,7 +37,7 @@
     @component('components.movies.carousel', [
         'idName' => 'topSellingCarousel',
         'carouselItems' => App\Movie::topSelling(),
-        'numItems' => 3,
+        'numItems' => 4,
         'height' => '260px;'
     ])
     @endcomponent
@@ -48,7 +48,7 @@
     @component('components.movies.carousel', [
         'idName' => 'newReleaseCarousel',
         'carouselItems' => App\Movie::newRelease(),
-        'numItems' => 3,
+        'numItems' => 4,
         'height' => '260px;'
     ])
     @endcomponent

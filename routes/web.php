@@ -26,7 +26,8 @@ Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.ho
 Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
 Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
 
-Route::get('customer/reviews/create', 'Customer\ReviewController@create')->name('customer.reviews.create');
+Route::get('movies/{id}/reviews/create', 'Customer\ReviewController@create')->name('movies.reviews.create');
+Route::post('movies/{id}/reviews', 'Customer\ReviewController@store')->name('movies.reviews.store');
 
 Route::get('/movies', 'MovieController@index')->name('movies.index');
 Route::get('/movies/{id}', 'MovieController@show')->name('movies.show');
