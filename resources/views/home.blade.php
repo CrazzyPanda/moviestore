@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
   <div class="container">
     @if (Auth::user() == null)
     <div class="row">
@@ -9,7 +8,7 @@
         <div class="carousel-inner">
           @foreach (App\Movie::topSelling() as $movie)
           <div class="carousel-item {{ ($loop->index == 0) ? "active" : "" }} ">
-            <img class="d-block w-100"  style="height: 500px; object-fit: cover" src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}">
+            <img class="d-block w-100" src="">
           </div>
           @endforeach
         </div>
@@ -71,6 +70,9 @@
     @endforeach
     <!-- /List of Genres -->
 
+    <div>
+      <button type="button" class="btn"><a href="#top">&#8593;</a></button>
+    </div>
   </div>
   <!-- /End Of Container -->
 @endsection

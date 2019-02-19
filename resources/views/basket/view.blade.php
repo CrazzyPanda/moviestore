@@ -7,7 +7,6 @@
             <div>
                 <h3 class="title">Shopping Basket</h3>
             </div>
-            <p></p>
             <div>
                 @if ($basket->isEmpty())
                     <p>There are no items in your shopping basket.</p>

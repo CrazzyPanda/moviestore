@@ -11,7 +11,7 @@
 
                 <div class="row">
                     <div class="col-md-9">
-                        <h3>Recent Orders</h3>
+                        <h3 class="title">Recent Orders</h3>
                     </div>
                     <div class="col-md-3">
                         <!--add buttom which routes to the doctor create page -->
@@ -50,7 +50,7 @@
                     <p></p>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Recent Movies Added</h3>
+                            <h3 class="title">Recent Movies Added</h3>
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-outline-primary" href="{{ route('admin.movies.index') }}">View All Movies</a>
@@ -82,7 +82,7 @@
                     <p></p>
                     <div class="row">
                         <div class="col-md-9">
-                            <h3>Recent Users Registered</h3>
+                            <h3 class="title">Recent Users Registered</h3>
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-outline-primary" href="{{ route('admin.users.index') }}">View All Users</a>
