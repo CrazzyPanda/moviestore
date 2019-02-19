@@ -66,7 +66,7 @@
         <h5 class="title">Reviews</h5>
         <div><a class="btn btn-primary" href="{{ route('customer.reviews.create') }}">Write a review.</a></div>
           @foreach ($reviews as $review)
-            <p class=""><img src="{{ URL::asset('storage/css/user.svg') }}" width="35" height="35" alt="User">{{ $review->customer->user->name }}</p>
+            <p class=""><img src="{{ URL::asset('storage/icons/user.svg') }}" width="35" height="35" alt="User">{{ $review->customer->user->name }}</p>
             <p class="reviewHeader">
               <span class="reviewTitle">{{ $review->title }}</span>
               <span class="reviewRating">{{ $review->starRating }}/5 stars</span>
