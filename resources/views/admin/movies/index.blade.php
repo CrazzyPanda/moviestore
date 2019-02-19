@@ -39,7 +39,7 @@
                                 <td><form action="{{ route('admin.movies.destroy', $movie)}}" method="POST">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button class="btn btn-outline-primary">Delete</button></td>
+                                    <button class="btn btn-outline-danger">Delete</button></td>
                                 </form>
                             </tr>
                             @endforeach

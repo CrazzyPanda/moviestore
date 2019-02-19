@@ -63,6 +63,15 @@
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
             @if (Auth::user() != null && Auth::user()->hasRole('customer'))
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control form-control-sm mr-3" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"></a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
@@ -87,6 +96,15 @@
               </div>
             </li>
             @else
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control form-control-sm mr-3" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
