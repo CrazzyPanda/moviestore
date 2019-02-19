@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -64,29 +61,34 @@
           </ul>
 
           <!-- Right Side Of Navbar -->
+          <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
+              @if (Auth::user() == null || Auth::user()->hasRole('customer'))
+              <li class="nav-item">
+                  <form class="form-inline my-2 my-lg-0" action="{{ route('search')}}" method="POST" role="search">
+                      @csrf
+                      <input class="form-control form-control-sm mr-3"
+                             type="text"
+                             placeholder="Search"
+                             aria-label="Search"
+                             name="terms"/>
+                      <button class="btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+              </li>
+              @endif
             @if (Auth::user() != null && Auth::user()->hasRole('customer'))
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item nav-link" href="{{ route('customer.profiles.index') }}">View Profile</a>
-                <a class="dropdown-item nav-link" href="{{ route('customer.orders.index') }}">View Order History</a>
-                <a class="dropdown-item nav-link" href="{{ route('logout') }}"
+                <a class="dropdown-item" href="{{ route('customer.profile.show') }}">My Profile</a>
+                <a class="dropdown-item" href="{{ route('customer.orders.index') }}">My Orders</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                @elseif (Auth::user() != null && Auth::user()->hasRole('admin'))
-                <a class="dropdown-item nav-link" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+              </div>
+            </li>
               </div>
             </li>
             @else
@@ -135,5 +137,9 @@
       <p>Copyright &copy; 2018 OMS.com. All Rights Reserved.</p>
     </div>
   </div>
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
+
+  @yield('script')
 </body>
 </html>

@@ -23,6 +23,20 @@ class MovieController extends Controller
         ]);
     }
 
+    public function search(Request $request) {
+        $request->validate([
+            'terms' => 'required|max:100'
+        ]);
+
+        $terms = $request->input('terms');
+
+        $movies = Movie::where('name', 'LIKE', '%'.$terms.'%')->get();
+
+        return view('movies.index')->with([
+            'movies' => $movies
+        ]);
+    }
+
     public function show($id)
     {
         $movie = Movie::findOrFail($id);
