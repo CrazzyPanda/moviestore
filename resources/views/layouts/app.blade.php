@@ -21,7 +21,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-laravel" id="top">
         <div class="navbar-brand">
-          <img src="{{ URL::asset('storage/css/LogoMakr_6pJHDs.png') }}" width="100" height="55" alt="OMS Logo">
+          <img src="{{ URL::asset('storage/icons/LogoMakr_6pJHDs.png') }}" width="100" height="55" alt="OMS Logo">
         </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
