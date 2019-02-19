@@ -30,12 +30,12 @@
                             </thead>
                             <tbody>
                                 @foreach ($basket->getItems() as $item)
-                                <tr>
+                                <tr data-movie-id="{{ $item->getMovie()->id }}">
                                     <td>{{ $item->getMovie()->name }}</td>
                                     <td>€ {{ number_format($item->getMovie()->price, 2) }}</td>
-                                    <td><input class="p-2" type="text" name="quantity[{{ $item->getMovie()->id }}]" value="{{ $item->getQuantity() }}" /></td>
+                                    <td><input class="p-2 cart-item-quantity" type="text" name="quantity[{{ $item->getMovie()->id }}]" value="{{ $item->getQuantity() }}" /></td>
                                     <td>€ {{ number_format($item->getTotalPrice(), 2) }}</td>
-                                    <td><a href="#" class="btn btn-outline-danger">Remove</a></td>
+                                    <td><a href="#" class="btn btn-outline-danger cart-remove">Remove</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -61,4 +61,16 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" defer>
+$(document).ready(function () {
+    $('.cart-remove').click(function (e) {
+        e.preventDefault();
+        $(this).closest("tr").find('input.cart-item-quantity').val(0);
+        $(this).blur();
+    });
+});
+</script>
 @endsection

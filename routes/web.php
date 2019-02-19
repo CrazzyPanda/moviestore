@@ -24,7 +24,10 @@ Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));
 
 Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.home');
 Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
-Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
+// Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
+Route::get('customer/profile/', 'Customer\ProfileController@show')->name('customer.profile.show');
+Route::get('customer/profile/edit', 'Customer\ProfileController@edit')->name('customer.profile.edit');
+Route::put('customer/profile', 'Customer\ProfileController@update')->name('customer.profile.update');
 
 Route::get('customer/reviews/create', 'Customer\ReviewController@create')->name('customer.reviews.create');
 
@@ -36,6 +39,8 @@ Route::post('/basket', 'BasketController@add')->name('basket.add');
 Route::get('/basket/edit', 'BasketController@edit')->name('basket.edit');
 Route::put('/basket', 'BasketController@update')->name('basket.update');
 
+Route::post('/search', 'MovieController@search')->name('search');
+
 Route::get('/basket/checkout', 'BasketController@checkout')->name('basket.checkout');
-Route::post('/basket/pay', 'BasketController@pay')->name('basket.pay');
+Route::put('/basket/pay', 'BasketController@pay')->name('basket.pay');
 // Route::resource('/basket', 'BasketController', array("as"=>"basket"));

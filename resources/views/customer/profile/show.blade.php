@@ -4,8 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div>
-                <h3 class="title">Profile</h3>
+            <div class="row">
+                <div class="col-9">
+                    <h3 class="title">Profile</h3>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-outline-primary" href="{{ route('customer.profile.edit') }}">Edit Profile</a>
+                </div>
             </div>
             <div class="card">
                 <table class="table">

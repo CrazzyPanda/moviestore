@@ -38,7 +38,7 @@
                   <form action="{{ route('basket.add') }}" method="POST">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                      <button type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
+                      <button class="btn btn-outline-primary" type="submit" data-toggle="modal" data-target="#addMsg">Add to basket</button>
                   </form>
               @endif
           </div>

@@ -76,12 +76,11 @@ class BasketController extends Controller
     public function checkout(Request $request)
     {
         $user = Auth::user();
-        $customer = $user->customer;
-        if ($customer == null) {
+        if ($user == null || $user->customer == null) {
             $request->session()->flash('alert-warning', 'You need to login or register before you can checkout');
             return redirect()->route('login');
         }
-
+        $customer = $user->customer;
         $basket = $this->getBasket($request);
 
         return view('basket.checkout')->with([
