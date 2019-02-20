@@ -13,7 +13,7 @@
                 @else
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('basket.pay') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('basket.pay') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="PUT">
                     <div class="row">
@@ -69,7 +69,6 @@
                                 </table>
                             </div>
                             <p></p>
-                            <a class="btn btn-outline-primary" href="{{ route('customer.profile.edit') }}">Edit your Details</a>
                         </div>
                     </div>
                     <p></p>

@@ -95,7 +95,7 @@
                             </tbody>
                         </table>
                         <input class="btn btn-outline-primary" type="submit" value="Save"/>
-                        <a class="btn btn-outline-primary" href="{{ route('customer.profile.show') }}">Cancel</a>
+                        <a class="btn btn-outline-secondary" href="{{ route('customer.profile.show') }}">Cancel</a>
                     </form>
                 </div>
             </div>

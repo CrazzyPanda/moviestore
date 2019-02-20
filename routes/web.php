@@ -24,7 +24,6 @@ Route::resource('admin/users', 'Admin\UserController', array("as"=>"admin"));
 
 Route::get('/customer/home', 'Customer\HomeController@index')->name('customer.home');
 Route::resource('customer/orders', 'Customer\OrderController', array("as"=>"customer"));
-// Route::resource('customer/profiles', 'Customer\ProfileController', array("as"=>"customer"));
 Route::get('customer/profile/', 'Customer\ProfileController@show')->name('customer.profile.show');
 Route::get('customer/profile/edit', 'Customer\ProfileController@edit')->name('customer.profile.edit');
 Route::put('customer/profile', 'Customer\ProfileController@update')->name('customer.profile.update');
@@ -44,4 +43,4 @@ Route::post('/search', 'MovieController@search')->name('search');
 
 Route::get('/basket/checkout', 'BasketController@checkout')->name('basket.checkout');
 Route::put('/basket/pay', 'BasketController@pay')->name('basket.pay');
-// Route::resource('/basket', 'BasketController', array("as"=>"basket"));
+Route::get('/basket/confirmation/{id}', 'BasketController@confirmation')->name('basket.confirmation');

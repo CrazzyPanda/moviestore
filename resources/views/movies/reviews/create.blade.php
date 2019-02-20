@@ -13,7 +13,7 @@
                         <table>
                             <tbody>
                               <div class="form-group">
-                                <label>Star Rating</label>
+                                <label>Star Rating:</label>
                                   <select class="form-control" name="starRating">
                                     <option {{ (old('starRating') == 1) ? "selected" : "" }}>1</option>
                                     <option {{ (old('starRating') == 2) ? "selected" : "" }}>2</option>
@@ -25,7 +25,7 @@
 
                               <div class="form-group">
                                   <label>Title:</label>
-                                  <input class="form-control" type="text" name="title" value="{{ old('title') }}" />
+                                  <input class="form-control" placeholder="Title of your review" type="text" name="title" value="{{ old('title') }}" />
                                   @if ($errors->has('title'))
                                     <div class="error">{{ $errors->first('title') }}</div>
                                   @endif
@@ -33,7 +33,7 @@
 
                               <div class="form-group">
                                   <label>Review:</label>
-                                  <textarea class="form-control" type="text" name="text">{{ old('text') }}</textarea>
+                                  <textarea class="form-control" placeholder="Text of your review" type="text" name="text">{{ old('text') }}</textarea>
                                   @if ($errors->has('text'))
                                     <div class="error">{{ $errors->first('text') }}</div>
                                   @endif
@@ -41,7 +41,7 @@
                             </tbody>
                         </table>
                         <input class="btn btn-outline-primary" type="submit" value="Submit"/>
-                        <a class="btn btn-outline-primary" href="#">Cancel</a>
+                        <a class="btn btn-outline-secondary" href="#">Cancel</a>
                     </form>
                 </div>
             </div>

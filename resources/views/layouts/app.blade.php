@@ -89,7 +89,12 @@
                 </a>
               </div>
             </li>
-              </div>
+            @elseif (Auth::user() != null && Auth::user()->hasRole('admin'))
+            <li class="nav-item">
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                </a>
             </li>
             @else
             <li class="nav-item">
@@ -100,10 +105,26 @@
             </li>
             @endif
           </ul>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
         </div>
     </nav>
 
     <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flash-message">
+                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                            @if(Session::has('alert-' . $msg))
+                                <p class="alert alert-auto alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
         @yield('content')
     </main>
 
@@ -141,5 +162,10 @@
   <script src="{{ asset('js/app.js') }}"></script>
 
   @yield('script')
+  <script type="text/javascript">
+    $(".alert-auto").delay(4000).slideUp(200, function() {
+        $(this).alert('close');
+    });
+  </script>
 </body>
 </html>
