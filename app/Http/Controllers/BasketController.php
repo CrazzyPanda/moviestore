@@ -91,36 +91,9 @@ class BasketController extends Controller
     }
 
     public function pay(Request $request) {
-        // $request->validate([
-        //     'credit_card_id' => 'required|integer|min:0'
-        // ]);
 
         $user = Auth::user();
         $customer = $user->customer;
-
-        // $credit_card_id = $request->input('credit_card_id');
-        // if ($credit_card_id == 0) {
-        //     $request->validate([
-        //         'name' => 'nullable|string|max:100',
-        //         'number' => 'nullable|digits:16',
-        //         'expiry' => 'nullable|regex:/[0-9]{2}\/[0-9]{2}/',
-        //         'cvv' => 'nullable|digits:3'
-        //     ]);
-        //
-        //     $card = new CreditCard();
-        //     $card->name = $request->input('name');
-        //     $card->number = $request->input('number');
-        //     $card->expiry = $request->input('expiry');
-        //     $card->cvv = $request->input('cvv');
-        //     $card->customer_id = $customer->id;
-        //     $card->save();
-        // }
-        // else {
-        //     $card = CreditCard::findOrFail($credit_card_id);
-        //     if ($card->customer_id != $customer->id) {
-        //         return response(401, 'Unauthorised');
-        //     }
-        // }
 
         $order = new Order();
         $order->date = date('Y-m-d');
@@ -137,15 +110,22 @@ class BasketController extends Controller
         $basket->removeAll();
 
         $request->session()->flash('alert-success', 'Your order and payment have been received!');
-        return redirect()->route('customer.orders.show', $order);
+        
+        return redirect()->route('basket.confirmation', $order);
+    }
+
+    public function confirmation($id)
+    {
+        $order = Order::findOrFail($id);
+        return view('basket.confirmation')->with(['order' => $order]);
     }
 
     private function getBasket(Request $request) {
-        $basket = $request->session()->get('basket', null);//
-        if ($basket == null) {//
-            $basket = new ShoppingBasket();//
-            $request->session()->put('basket', $basket);//
+        $basket = $request->session()->get('basket', null);
+        if ($basket == null) {
+            $basket = new ShoppingBasket();
+            $request->session()->put('basket', $basket);
         }
-        return $basket;//
+        return $basket;
     }
  }

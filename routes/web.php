@@ -49,4 +49,4 @@ Route::get('/basket/edit', 'BasketController@edit')->name('basket.edit');
 Route::put('/basket', 'BasketController@update')->name('basket.update');
 Route::get('/basket/checkout', 'BasketController@checkout')->name('basket.checkout');
 Route::put('/basket/pay', 'BasketController@pay')->name('basket.pay');
-// Route::resource('/basket', 'BasketController', array("as"=>"basket"));
+Route::get('/basket/confirmation/{id}', 'BasketController@confirmation')->name('basket.confirmation');
