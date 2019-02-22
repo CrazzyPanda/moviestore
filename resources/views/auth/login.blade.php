@@ -56,7 +56,7 @@
                                 <button type="submit" class="btn btn-outline-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <a class="btn btn-outline-secondary" href="{{ route('home') }}">Cancel</a>
+                                <a class="btn btn-outline-secondary" href="{{ route('welcome') }}">Cancel</a>
 
                                 <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}

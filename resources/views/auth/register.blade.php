@@ -178,7 +178,7 @@
                                 <button type="submit" class="btn btn-outline-primary">
                                     {{ __('Register') }}
                                 </button>
-                                <a class="btn btn-outline-secondary" href="{{ route('home') }}">{{ __('Cancel') }}</a>
+                                <a class="btn btn-outline-secondary" href="{{ route('welcome') }}">{{ __('Cancel') }}</a>
                             </div>
                         </div>
                     </form>

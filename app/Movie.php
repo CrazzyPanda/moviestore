@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
+    public static function inCollection($movie, $movieCollection) {
+        if ($movieCollection->first(function($m) use ($movie) { return $m->id == $movie->id; }) == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     //a movie can have many orders
     public function orders()
     {
@@ -38,13 +47,13 @@ class Movie extends Model
             return $sum / $this->reviews->count();
         }
         else {
-            return null;
+            return 3;
         }
     }
 
     public static function topSelling()
     {
-        return Movie::all()->random(6);
+        return Movie::all()->random(8);
     }
 
     public static function newRelease()

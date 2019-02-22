@@ -27,9 +27,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
+
+
+
             @if (Auth::user() == null || Auth::user()->hasRole('customer'))
             <li class="nav-item">
+                @if(Auth::user() == null)
+                <a class="nav-link" href="{{ route('welcome') }}">{{ __('Home') }}</a>
+                @else
                 <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                @endif
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" role="button"

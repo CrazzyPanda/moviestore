@@ -4,10 +4,10 @@
   <div class="container">
     @if (Auth::user() == null)
     <div class="row">
-      <div id="bannerCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+      <div id="bannerCarousel" class="carousel slide carousel-fade col" data-ride="carousel">
         <div class="carousel-inner">
           @foreach (App\Movie::topSelling() as $movie)
-          <div class="carousel-item {{ ($loop->index == 0) ? "active" : "" }} ">
+          <div class="carousel-item {{ ($loop->index == 0) ? "active" : "" }}">
             <img class="d-block w-100" src="">
           </div>
           @endforeach
@@ -24,7 +24,7 @@
         @component('components.movies.carousel', [
             'idName' => 'recommendedCarousel',
             'carouselItems' => Auth::user()->customer->recommended(),
-            'numItems' => 3,
+            'numItems' => 4,
             'height' => '260px;'
         ])
         @endcomponent

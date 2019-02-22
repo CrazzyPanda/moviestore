@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 use App\Order;
 use App\Movie;
 use App\Customer;
 use App\User;
+use App\Role;
 
 class OrdersTableSeeder extends Seeder
 {
@@ -15,18 +17,27 @@ class OrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        $order = new Order();
-        $order->date = "2018-11-12";
-        $order->customer_id = User::where('name', 'Hosh Hoo')->first()->customer->id;
-        $order->save();
-        $order->movies()->attach(Movie::where('name', "Fantastic Beasts")->first()->id, ['quantity' => 1]);
-        $order->movies()->attach(Movie::where('name', "Deadpool 2")->first()->id, ['quantity' => 1]);
+        $role_customer = Role::where('name', 'customer')->first();
+        $customers = $role_customer->users;
+        $movies = Movie::all();
+        $faker = Factory::create();
 
-        $order = new Order();
-        $order->date = "2018-11-12";
-        $order->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $order->save();
-        $order->movies()->attach(Movie::where('name', "The Greatest Showman")->first()->id, ['quantity' => 1]);
-        $order->movies()->attach(Movie::where('name', "Coco")->first()->id, ['quantity' => 2]);
+        for ($i = 0; $i !=100; $i++) {
+            $order = new Order();
+            $order->date = $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+            $order->customer_id = $customers->random()->customer->id;
+            $order->save();
+
+            $orderMovies = collect([]);
+            $num = rand(1,5);
+            for ($j = 0; $j != $num; $j++) {
+                $movie = $movies->random();
+                if (!$orderMovies->contains($movie)) {
+                    $orderMovies->push($movie);
+                    $quantity = rand(1,3);
+                    $order->movies()->attach($movie->id, ['quantity' => $quantity]);
+                }
+            }
+        }
     }
 }

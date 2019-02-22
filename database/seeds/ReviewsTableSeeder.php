@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 use App\Review;
 use App\Customer;
 use App\Movie;
 use App\User;
+use App\Role;
 
 class ReviewsTableSeeder extends Seeder
 {
@@ -15,31 +17,20 @@ class ReviewsTableSeeder extends Seeder
      */
     public function run()
     {
-        $review = new Review();
-        $review->title = "This was SHIT.";
-        $review->text = "This movie was not really good. It really wasnt, No.";
-        $review->starRating = "1";
-        $review->date = "2018-11-25";
-        $review->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Coco')->first()->id;
-        $review->save();
+        $role_customer = Role::where('name', 'customer')->first();
+        $customers = $role_customer->users;
+        $movies = Movie::all();
+        $faker = Factory::create();
 
-        $review = new Review();
-        $review->title = "This was FANTASTIC.";
-        $review->text = "This movie was really good. It really was. YAAASSS.";
-        $review->starRating = "5";
-        $review->date = "2016-11-25";
-        $review->customer_id = User::where('name', 'Hosh Hoo')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Deadpool 2')->first()->id;
-        $review->save();
-
-        $review = new Review();
-        $review->title = "This was OK.";
-        $review->text = "This movie was ok. It really was. YAAASSS.";
-        $review->starRating = "3";
-        $review->date = "2016-11-25";
-        $review->customer_id = User::where('name', 'Grace Cautley')->first()->customer->id;
-        $review->movie_id = Movie::where('name', 'Fantastic Beasts')->first()->id;
-        $review->save();
+        for ($i = 0; $i != 300; $i++) {
+            $review = new Review();
+            $review->title = $faker->realText($maxNbChars = 20, $indexSize = 2);
+            $review->text = $faker->paragraph($nbSentences = 2, $variableNbSentences = false);
+            $review->starRating = rand(1,5);
+            $review->date = $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null);
+            $review->customer_id = $customers->random()->customer->id;
+            $review->movie_id = $movies->random()->id;
+            $review->save();
+        }
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 use App\Customer;
 use App\Role;
 use App\User;
@@ -17,42 +18,26 @@ class CustomersTableSeeder extends Seeder
 
         $role_customer = Role::where('name', 'customer')->first();
 
-        $customer_user = new User();
-        $customer_user->name = 'Grace Cautley';
-        $customer_user->email = 'grace@gmail.com';
-        $customer_user->password = bcrypt('secret');
-        $customer_user->save();
-        $customer_user->roles()->attach($role_customer);
+        $faker = Factory::create();
+        for ($i = 0; $i !=100; $i++) {
+            $customer_user = new User();
+            $customer_user->name = $faker->name;
+            $customer_user->email = $faker->email;
+            $customer_user->password = bcrypt('secret');
+            $customer_user->save();
+            $customer_user->roles()->attach($role_customer);
 
-        $customer = new Customer();
-        $customer->addressLine1 = "1 Main Street";
-        $customer->addressLine2 = "Roseland";
-        $customer->town = "Bray";
-        $customer->county = "Wicklow";
-        $customer->nameOnCard = "Grace Cautley";
-        $customer->cardNumber = "0123456789012345";
-        $customer->expiryDate = "12/20";
-        $customer->cvv = "146";
-        $customer->user_id = $customer_user->id;
-        $customer->save();
-
-        $customer_user = new User();
-        $customer_user->name = "Hosh Hoo";
-        $customer_user->email = 'hosh@gmail.com';
-        $customer_user->password = bcrypt('secret');
-        $customer_user->save();
-        $customer_user->roles()->attach($role_customer);
-
-        $customer = new Customer();
-        $customer->addressLine1 = "2 Main Street";
-        $customer->addressLine2 = "Roseland";
-        $customer->town = "Bray";
-        $customer->county = "Wicklow";
-        $customer->nameOnCard = "Hosh Hoo";
-        $customer->cardNumber = "1123456789012345";
-        $customer->expiryDate = "11/22";
-        $customer->cvv = "001";
-        $customer->user_id = $customer_user->id;
-        $customer->save();
+            $customer = new Customer();
+            $customer->addressLine1 = $faker->streetAddress;
+            $customer->addressLine2 = $faker->secondaryAddress;
+            $customer->town = $faker->city;
+            $customer->county = $faker->state;
+            $customer->nameOnCard = $customer_user->name;
+            $customer->cardNumber = $faker->creditCardNumber;
+            $customer->expiryDate = $faker->creditCardExpirationDateString;
+            $customer->cvv = "" . rand(pow(10, 2), pow(10, 3)-1);
+            $customer->user_id = $customer_user->id;
+            $customer->save();
+        }
     }
 }
