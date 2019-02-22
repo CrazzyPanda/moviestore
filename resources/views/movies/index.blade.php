@@ -5,36 +5,32 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="row">
-                <div class="col-md-12">
-                    <h2>Movie Index</h2>
-                </div>
+                <h3 class="title">Movie Index</h3>
             </div>
-            <p></p>
-                <div class="card">
-                    <table class="table">
-                        <thread>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thread>
-                        <tbody>
+            <div class="card">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thread>
+                    <tbody>
 
-                            @foreach ($movies as $movie)
-                            <tr>
-                                <td>{{ $movie->id }}</td>
-                                <td>{{ $movie->name }}</td>
-                                <td>{{ $movie->price }}</td>
-                                <td><a class="btn btn-outline-primary" href="{{ route('movies.show', $movie) }}">View Movie</a><td>
-                            </tr>
-                            @endforeach
+                        @foreach ($movies as $movie)
+                        <tr>
+                            <td>{{ $movie->id }}</td>
+                            <td>{{ $movie->name }}</td>
+                            <td>{{ $movie->price }}</td>
+                            <td><a class="btn btn-outline-primary" href="{{ route('movies.show', $movie) }}">View Movie</a><td>
+                        </tr>
+                        @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

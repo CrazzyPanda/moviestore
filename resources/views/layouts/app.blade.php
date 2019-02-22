@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div id="app">
@@ -48,7 +49,10 @@
               </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('basket.view') }}">{{ __('Shopping Basket') }}</a>
+                <a class="nav-link" href="{{ route('basket.view') }}">
+                  <i class="material-icons">shopping_basket</i>
+                  {{ __('Shopping Basket') }}
+                </a>
             </li>
             @endif
             @if (Auth::user() != null && Auth::user()->hasRole('admin'))
@@ -67,7 +71,6 @@
             @endif
           </ul>
 
-          <!-- Right Side Of Navbar -->
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
               @if (Auth::user() == null || Auth::user()->hasRole('customer'))
