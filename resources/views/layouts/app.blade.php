@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div id="app">
@@ -41,7 +42,10 @@
               </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('basket.view') }}">{{ __('Shopping Basket') }}</a>
+                <a class="nav-link" href="{{ route('basket.view') }}">
+                  <i class="material-icons">shopping_basket</i>
+                  {{ __('Shopping Basket') }}
+                </a>
             </li>
             @endif
             @if (Auth::user() != null && Auth::user()->hasRole('admin'))
@@ -61,7 +65,6 @@
           </ul>
 
           <!-- Right Side Of Navbar -->
-          <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
               @if (Auth::user() == null || Auth::user()->hasRole('customer'))
               <li class="nav-item">
@@ -76,30 +79,38 @@
                   </form>
               </li>
               @endif
-            @if (Auth::user() != null && Auth::user()->hasRole('customer'))
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                  aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ route('customer.profile.show') }}">My Profile</a>
-                <a class="dropdown-item" href="{{ route('customer.orders.index') }}">My Orders</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
-                </a>
-              </div>
-            </li>
-              </div>
-            </li>
-            @else
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-            @endif
+              @if (Auth::user() != null && Auth::user()->hasRole('customer'))
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{{ route('customer.profile.show') }}">My Profile</a>
+                  <a class="dropdown-item" href="{{ route('customer.orders.index') }}">My Orders</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                  </a>
+                </div>
+              </li>
+              @elseif (Auth::user() != null && Auth::user()->hasRole('admin'))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                  </a>
+              </li>
+              @else
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+              @endif
           </ul>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
         </div>
     </nav>
 

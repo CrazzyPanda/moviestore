@@ -24,7 +24,7 @@
         @component('components.movies.carousel', [
             'idName' => 'recommendedCarousel',
             'carouselItems' => Auth::user()->customer->recommended(),
-            'numItems' => 3,
+            'numItems' => 4,
             'height' => '260px;'
         ])
         @endcomponent

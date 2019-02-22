@@ -52,4 +52,64 @@ class ReviewController extends Controller
 
         return redirect()->route('movies.show', $movie->id);
     }
+
+    public function edit($id, $rid)
+    {
+        $movie = Movie::findOrFail($id);
+        $review = Review::findOrFail($rid);
+        $user = Auth::user();
+        $customer = $user->customer;
+
+        if ($review->customer_id != $customer->id) {
+          return response('Unauthorized.', 401);
+        }
+
+        return view('movies.reviews.edit')->with([
+            'movie' => $movie,
+            'review' => $review
+        ]);
+    }
+
+    public function update(Request $request, $id, $r_id)
+    {
+      $movie = Movie::findOrFail($id);
+      $review = Review::findOrFail($r_id);
+      $user = Auth::user();
+      $customer = $user->customer;
+
+      if ($review->customer_id != $customer->id) {
+        return response('Unauthorized.', 401);
+      }
+
+      $request->validate([
+            'starRating' => 'required|integer|min:1|max:5',
+            'title' => 'required|max:50',
+            'text' => 'nullable|string|max:191'
+        ]);
+        $review->starRating = $request->input('starRating');
+        $review->title = $request->input('title');
+        $review->text = $request->input('text');
+        $review->date = date("Y-m-d");
+
+        $review->save();
+
+        return redirect()->route('movies.show', $movie->id);
+    }
+
+    public function destroy($id, $rid)
+    {
+        $movie = Movie::findOrFail($id);
+        $review = Review::findOrFail($r_id);
+        $user = Auth::user();
+        $customer = $user->customer;
+
+        if ($review->customer_id != $customer->id) {
+          return response('Unauthorized.', 401);
+        }
+
+        $review->delete();
+
+        return redirect()->route('movies.show', $movie->id);
+    }
+
 }

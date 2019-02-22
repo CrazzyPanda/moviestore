@@ -106,6 +106,8 @@ class MovieController extends Controller
 
     public function update(Request $request, $id)
     {
+        $m = Movie::findOrFail($id);
+
         $request->validate([
             'name' => 'required|max:50',
             'price' => 'required|numeric|between:0,99',
@@ -123,7 +125,6 @@ class MovieController extends Controller
             'genre_id' => 'required|exists:genres,id'
         ]);
 
-        $m = Movie::findOrFail($id);
         if ($request->hasfile('cover')) {
             $oldImage = $m->image;
 
@@ -144,6 +145,7 @@ class MovieController extends Controller
                 $oldImage->delete();
             }
         }
+
         $m->name = $request->input('name');
         $m->price = $request->input('price');
         $m->summary = $request->input('summary');
@@ -178,7 +180,4 @@ class MovieController extends Controller
 
         return redirect()->route('admin.movies.index');
     }
-
-
-
 }

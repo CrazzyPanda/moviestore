@@ -8,7 +8,7 @@
                 <div class="card-header">Write a review for {{ $movie->name }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route("movies.reviews.store", $movie->id) }}">
+                    <form method="POST" action="{{ route('movies.reviews.store', $movie->id) }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <table>
                             <tbody>
@@ -41,7 +41,7 @@
                             </tbody>
                         </table>
                         <input class="btn btn-outline-primary" type="submit" value="Submit"/>
-                        <a class="btn btn-outline-primary" href="#">Cancel</a>
+                          <a class="btn btn-outline-secondary" href="{{ route('movies.show', $movie->id) }}">Cancel</a>
                     </form>
                 </div>
             </div>
