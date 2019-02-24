@@ -12,8 +12,7 @@
                     <a class="btn btn-outline-primary" href="{{ route('customer.profile.edit') }}">Edit Profile</a>
                 </div>
             </div>
-            <div class="card">
-                <table class="table">
+                <table class="table table-striped table-dark table-bordered">
                     <tbody>
                         <tr>
                             <th>Name</th>
@@ -41,13 +40,11 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
             <br>
             <div>
                 <h3 class="title">Card Details</h3>
             </div>
-            <div class="card">
-                <table class="table">
+                <table class="table table-striped table-dark table-bordered">
                     <tbody>
                         <tr>
                             <th>Name on Card</th>
@@ -67,7 +64,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
             </div>
         </div>
     </div>

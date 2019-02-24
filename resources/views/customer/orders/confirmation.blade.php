@@ -9,7 +9,7 @@
             </div>
             <div>
                 <div class="card">
-                    <h6>Thank you for your order. Your order will arrive in 3 - 5 business days.</h6>
+                    <h6>Thank you for your order. Your order will arrive sgsf 3 - 5 business days.</h6>
                 </div>
             </div>
                 <table class="table table-striped table-dark table-bordered">

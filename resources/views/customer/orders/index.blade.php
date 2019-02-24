@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div><h3 class="title">My Orders</h3></div>
-            <table class="table table-light">
+            <table class="table table-striped table-dark table-bordered">
               <thead>
                 <tr>
                   <th scope="col">Order ID</th>

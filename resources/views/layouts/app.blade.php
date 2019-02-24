@@ -17,6 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ URL::asset('public/css/mystyle.css') }}" rel="stylesheet">
 </head>
 <body>
   <div id="app">
@@ -124,7 +125,9 @@
     <main class="py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
                     <div class="flash-message">
                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                             @if(Session::has('alert-' . $msg))
