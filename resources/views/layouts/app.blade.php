@@ -15,9 +15,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet">
+    <!-- <link href="{{ URL::asset('storage/css/mystyle.css') }}" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ URL::asset('public/css/mystyle.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('storage/css/styleSheet.css') }}" rel="stylesheet">
 </head>
 <body>
   <div id="app">
@@ -161,14 +161,19 @@
         <li><a class="footer-link" href="#">Terms & Conditions</a></li>
       </ul>
       <ul>
-        <li><p>Follow Us:</p></li>
         <li><a class="footer-link" href="#">Facebook</a></li>
         <li><a class="footer-link" href="#">Instagram</a></li>
         <li><a class="footer-link" href="#">Twitter</a></li>
       </ul>
 
-      <p>Created my free logo at <a href="https://my.logomakr.com/">LogoMakr.com</a></p>
-      <p>Copyright &copy; 2018 OMS.com. All Rights Reserved.</p>
+      <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col">
+              <small>Created my free logo at <a href="https://my.logomakr.com/">LogoMakr.com</a></small><br>
+              <small>Copyright &copy; 2018 OMS.com. All Rights Reserved.</small>
+          </div>
+      </div>
     </div>
   </div>
   <!-- Scripts -->

@@ -4,12 +4,12 @@
 <div class="container">
 
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="card">
-          <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" style="height: 400px;">
+          <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" style="height: 500px;">
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
           <div><h3 class="title">{{ $movie->name }}</h3></div>
           <div><p class="genre">{{ $movie->genre->name }}</i></div>
           <div><p>{{ $movie->summary }}</p></div>
@@ -25,7 +25,7 @@
           </div>
       </div>
     </div>
-    <hr>
+    <p></p>
     <div class="row">
         <div class="col-md-12">
             <div><h5 class="title">Product Details</h5></div>
@@ -45,7 +45,7 @@
       <div class="col-md-6">
         <h5 class="title">Reviews</h5>
           @if ($movie->reviews->isEmpty())
-            <p>There are no reviews for this movie.</p>
+            <p>There are no reviews for this movie yet.</p>
           @endif
           @if (Auth::user() != null && Auth::user()->hasRole('customer'))
             <div>
@@ -54,10 +54,6 @@
           @endif
           <br>
           @foreach ($reviews as $review)
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>
                     <div class="row">
                       <div class="col-md-9">
                         <i class="material-icons">perm_identity</i>
@@ -65,28 +61,21 @@
                       </div>
                       @if (Auth::user() != null && Auth::user()->hasRole('customer') && $review->customer_id == Auth::user()->customer->id )
                       <div class="col-md-3">
-                          <a class="btn btn-outline-warning btn-sm" href="{{ route('movies.reviews.edit', [$movie->id, $review->id]) }}">Edit</a>
+                          <a class="btn btn-outline-primary btn-sm" href="{{ route('movies.reviews.edit', [$movie->id, $review->id]) }}">Edit</a>
                           <a class="btn btn-outline-danger btn-sm" href="{{ route('movies.reviews.delete', [$movie->id, $review->id]) }}">Delete</a>
                       </div>
                       @endif
                     </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <td>
                   <p class="reviewHeader">
                     <span class="reviewTitle">{{ $review->title }}</span>
-                    <span class="reviewRating">{{ $review->starRating }}/5 stars</span>
+                    <span class="reviewRating">{{ $review->starRating }}/5 Stars</span>
                   </p>
-                  <p>{{ $review->date }}</p>
+                  <small>{{ $review->date }}</small>
+                  <p></p>
                   <p>{{ $review->text }}</p>
-                </td>
-              </tbody>
-            </table>
+                  <hr>
           @endforeach
       </div>
     </div>
-
 </div>
 @endsection
