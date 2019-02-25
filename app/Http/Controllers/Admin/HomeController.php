@@ -23,7 +23,6 @@ class HomeController extends Controller
         $orders = Order::take(5)->orderBy('created_at', 'DESC')->get();
         $movies = Movie::take(5)->orderBy('created_at', 'DESC')->get();
         $users = User::take(5)->orderBy('created_at', 'DESC')->get();
-        $users = Role::where('name', 'customer')->first()->users;
 
         return view('admin.home')->with([
             'orders' => $orders,
