@@ -64,8 +64,12 @@
                               </div>
                               @if (Auth::user() != null && Auth::user()->hasRole('customer') && $review->customer_id == Auth::user()->customer->id )
                                   <div class="col-md-3">
+                                    <form action="{{ action('Customer\ReviewController@delete', [$movie->id, $review->id]) }}" method="post">
+                                      @csrf
                                       <a class="btn btn-outline-warning btn-sm" href="{{ route('movies.reviews.edit', [$movie->id, $review->id]) }}">Edit</a>
-                                      <a class="btn btn-outline-danger btn-sm" href="{{ route('movies.reviews.delete', [$movie->id, $review->id]) }}">Delete</a>
+                                      <input name="_method" type="hidden" value="DELETE">
+                                      <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
                                   </div>
                               @endif
                           </div>
