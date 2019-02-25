@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div>
                 <h3 class="title">Shopping Basket</h3>
             </div>
@@ -12,19 +12,18 @@
                     <p>There are no items in your shopping basket.</p>
                 @else
             </div>
-                <div class="card">
+                <div>
                     <div class="card-body">
                     <form method="POST" action="{{ route('basket.update') }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="PUT">
-                    <div class="card">
-                        <table class="table">
+                        <table class="table table-striped table-dark table-bordered">
                             <thead>
                                 <tr>
                                     <th>Movie</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Subtotal</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -35,23 +34,19 @@
                                     <td>€ {{ number_format($item->getMovie()->price, 2) }}</td>
                                     <td><input class="p-2 cart-item-quantity" type="text" name="quantity[{{ $item->getMovie()->id }}]" value="{{ $item->getQuantity() }}" /></td>
                                     <td>€ {{ number_format($item->getTotalPrice(), 2) }}</td>
-                                    <td><a href="#" class="btn btn-outline-danger cart-remove">Remove</a></td>
+                                    <td><a href="#"class="btn btn-outline-danger cart-remove">Remove</a></td>
                                 </tr>
                                 @endforeach
+                                <tr>
+                                    <td colspan="4">If you made any changes to your basket, be sure to save them.</td>
+                                    <td><button class="btn btn-outline-primary" type="submit">Save</button></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">Order Total:</th>
+                                    <td>€ {{ $basket->getTotalPrice() }}</td>
+                                </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <p></p>
-                    <button class="btn btn-outline-primary" type="submit">Save</button>If you made any changes to your basket, be sure to save them.
-                    <p></p>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th colspan="3">Order Total:</th>
-                                <td>€ {{ $basket->getTotalPrice() }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <a href="{{ route('basket.checkout') }}" class="btn btn-outline-primary">Proceed to Checkout</a>
                     <a href="{{ route('customer.home') }}" class="btn btn-outline-secondary">Cancel</a>
                 </form>

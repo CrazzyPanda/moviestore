@@ -3,24 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div>
                 <h3 class="title">Checkout</h3>
             </div>
-            <div class="card">
+            <div>
                 @if ($basket->isEmpty())
                     <p>There are no items in your shopping basket</p>
                 @else
-
-                <div class="card-body">
                     <form method="POST" action="{{ route('basket.pay') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="PUT">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4 class="title">Payment</h4>
-                            <div class="card">
-                                <table class="table">
+                            <h5 class="title">Payment</h5>
+                                <table class="table table-striped table-dark table-bordered">
                                     <tbody>
                                         <tr>
                                             <th>Name on Card</th>
@@ -40,14 +37,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
                             <p></p>
-                            <a class="btn btn-outline-primary" href="{{ route('customer.profile.edit') }}">Edit your Details</a>
+                            <a class="btn btn-outline-secondary" href="{{ route('customer.profile.edit') }}">Edit your Details</a>
                         </div>
                         <div class="col-md-6">
-                            <h4 class="title">Address</h4>
-                            <div class="card">
-                                <table class="table">
+                            <h5 class="title">Address</h5>
+                                <table class="table table-striped table-dark table-bordered">
                                     <tbody>
                                         <tr>
                                             <th>Address Line 1</th>
@@ -67,15 +62,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
                             <p></p>
                         </div>
                     </div>
                     <p></p>
-
-                    <h4 class="title">Order Summary</h4>
-                    <div class="card">
-                        <table class="table">
+                    <h5 class="title">Order Summary</h5>
+                        <table class="table table-striped table-dark table-bordered">
                             <thead>
                                 <tr>
                                     <th>Movie</th>
@@ -93,10 +85,6 @@
                                     <td>{{ number_format($item->getTotalPrice(), 2) }}</td>
                                 </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
-                        <table class="table">
-                            <tbody>
                                 <tr>
                                     <th colspan="3">Order Total:</th>
                                     <td>€ {{ $basket->getTotalPrice() }}</td>
@@ -104,13 +92,11 @@
                             </tbody>
                         </table>
                         @endif
-                    </div>
                     <p></p>
                     <button class="btn btn-outline-primary" type="submit">Pay</button>
                     <a href="{{ route('customer.home') }}" class="btn btn-outline-secondary">Cancel</a>
                 </form>
             </div>
-        </div>
         </div>
     </div>
 </div>
