@@ -96,7 +96,7 @@ class ReviewController extends Controller
         return redirect()->route('movies.show', $movie->id);
     }
 
-    public function destroy($id, $rid)
+    public function delete($id, $r_id)
     {
         $movie = Movie::findOrFail($id);
         $review = Review::findOrFail($r_id);
