@@ -35,7 +35,7 @@ Route::get('movies/{id}/reviews/create', 'Customer\ReviewController@create')->na
 Route::post('movies/{id}/reviews', 'Customer\ReviewController@store')->name('movies.reviews.store');
 Route::get('/movies/{id}/reviews/{rid}/edit', 'Customer\ReviewController@edit')->name('movies.reviews.edit');
 Route::put('customer/{id}/reviews/{rid}', 'Customer\ReviewController@update')->name('movies.reviews.update');
-Route::delete('customer/{id}/reviews/{r_id}', 'Customer\ReviewController@delete')->name('movies.reviews.delete');
+Route::delete('customer/{id}/reviews/{rid}', 'Customer\ReviewController@delete')->name('movies.reviews.delete');
 
 Route::get('/movies', 'MovieController@index')->name('movies.index');
 Route::get('/movies/{id}', 'MovieController@show')->name('movies.show');
