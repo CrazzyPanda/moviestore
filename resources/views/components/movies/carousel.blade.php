@@ -9,7 +9,7 @@
             <div class="col-{{ 12 / $numItems }} {{ ($loop->index % $numItems == 0) ? "" : "d-inline-block" }}">
               <div class="carouselcard">
                 <a href="{{ route('movies.show', $movie) }}">
-                  <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" class="card-img-top" style="height: {{ $height }} width: {{ $width }}">
+                  <img src="{{ asset('storage/' . $movie->image->path) }}" alt="{{ $movie->name }}" class="card-img-top" style="height: {{ $height }} width">
                 </a>
                 <p class="movieName">{{ $movie->name }}</p>
                 <p class="price">€{{ $movie->price }}</p>
