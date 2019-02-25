@@ -14,7 +14,8 @@
             'idName' => 'topSellingCarousel',
             'carouselItems' => $movies,
             'numItems' => 6,
-            'height' => '260px;'
+            'height' => '230px;',
+            'width' => '180px;'
         ])
         @endcomponent
       @endif
